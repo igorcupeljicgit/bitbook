@@ -9,8 +9,8 @@ const Main = () => {
     return (
         <main className='container'>
             <Switch>
-                <Route path="/profile" component={Profile} />
-                <Route path="/people" component={People} />
+                <Route path="/users/:id" component={Profile} />
+                <Route path="/users" component={People} />
                 <Route path="/" component={Feed} />
             </Switch>
         </main>
