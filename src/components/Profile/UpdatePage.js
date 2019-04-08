@@ -57,7 +57,7 @@ class UpdatePage extends React.Component {
                     <div className='row'>
                         <div className="col-3"></div>
                         <div className="col-6">
-                            <input value={this.state.UpdatedStateImg} onChange={this.ChangeStateImg} className="inputimage" type="text" placeholder="Enter URL of the new Profile Image"></input>
+                            <input onChange={this.ChangeStateImg} className="inputimage" type="text" placeholder="Enter URL of the new Profile Image"></input>
                         </div>
                         <div className="col-3"></div>
                     </div>
