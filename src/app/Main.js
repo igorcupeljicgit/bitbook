@@ -11,7 +11,7 @@ const Main = () => {
         <main className='container'>
             <Switch>
                 <Route path="/updatepage" component={UpdatePage} />
-                <Route path="/profile" component={Profile} />
+                <Route path="/users/:id" component={Profile} />
                 <Route path="/users" component={People} />
                 <Route path="/" component={Feed} />
             </Switch>
