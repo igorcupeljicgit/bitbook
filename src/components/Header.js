@@ -15,10 +15,10 @@ const Header = () => {
                             <NavLink className="nav-link" activeClassName="selected">Feed</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link" activeClassName="selected">People</NavLink>
+                            <NavLink to="/people" className="nav-link" activeClassName="selected">People</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link" activeClassName="selected">Profile</NavLink>
+                            <NavLink to="/profile" className="nav-link" activeClassName="selected">Profile</NavLink>
                         </li>
                     </ul>
                 </div>

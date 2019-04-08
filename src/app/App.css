@@ -31,3 +31,22 @@
     transform: rotate(360deg);
   }
 }
+.profileButtonSubmit{
+  width: 100%;
+}
+.inputimage{
+  width: 100%;
+  margin-bottom: 10px;
+}
+.inputname{
+  width: 100%;
+  margin-bottom: 10px;
+}
+.inputSurname{
+  width: 100%;
+  margin-bottom: 10px;
+}
+.inputInfo{
+  width: 100%;
+  margin-bottom: 10px;
+}
