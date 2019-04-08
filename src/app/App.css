@@ -50,3 +50,17 @@
   width: 100%;
   margin-bottom: 10px;
 }
+
+body {
+    overflow-x: hidden;
+}
+
+#postCard {
+    background-color:white;
+    padding: 2%;
+    width: 65%;
+    margin: 2% auto;
+    -webkit-box-shadow: 1px 1px 10px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 1px 1px 10px 0px rgba(0,0,0,0.75);
+box-shadow: 1px 1px 10px 0px rgba(0,0,0,0.75);
+}

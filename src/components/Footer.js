@@ -6,7 +6,7 @@ const Footer = () => {
             <div className="card text-center">
                 <div className="card-body text-white bg-dark">
                     {new Date().getFullYear()}  Team name!!!
-  </div>
+                </div>
             </div>
         </footer >
     )
