@@ -10,7 +10,7 @@ const Main = () => {
     return (
         <main className='container'>
             <Switch>
-                <Route path="/UpdatePage" component={UpdatePage} />
+                <Route path="/updatepage" component={UpdatePage} />
                 <Route path="/profile" component={Profile} />
                 <Route path="/users" component={People} />
                 <Route path="/" component={Feed} />
