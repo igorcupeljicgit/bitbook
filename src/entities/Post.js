@@ -53,11 +53,11 @@ class Post extends React.Component {
         return (
             <>
 
-                <div id='postCard'>
-                    <Link to={`/posts/${id}`} style={{ textDecoration: 'none', color: 'black' }}>
+                <Link to={`/posts/${id}`} style={{ textDecoration: 'none', color: 'black' }}>
+                    <div id='postCard'>
                         {contentFrame}
-                    </Link>
-                </div>
+                    </div>
+                </Link>
             </>
         )
     }

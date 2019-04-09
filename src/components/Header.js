@@ -8,7 +8,7 @@ const Header = () => {
     return (
         <header>
             <nav className="navbar navbar-expand-lg navbar navbar-dark bg-dark row justify-content-between">
-                <div className="container ">
+                <div className="container">
                     <NavLink to='/' className="navbar-brand ">bitbook</NavLink>
                     <ul className="navbar-nav">
                         <li className="nav-item">
