@@ -7,24 +7,24 @@ const Post = (props) => {
         <>
             <p>{content}</p>
             <div className="d-flex justify-content-between ">
-                <span class="badge badge-pill  badge-secondary">{type} post</span>
-                <button class="badge badge-pill  badge-secondary">comments</button>
+                <span className="badge badge-pill  badge-secondary">{type} post</span>
+                <button className="badge badge-pill  badge-secondary">comments</button>
             </div>
         </>
     ) : type === 'image' ? (
         <>
             <img src={content} className="rounded" width="100%" style={{ marginBottom: '10px' }} />
             <div className="d-flex justify-content-between ">
-                <span class="badge badge-pill  badge-secondary">{type} post</span>
-                <button class="badge badge-pill  badge-secondary">comments</button>
+                <span className="badge badge-pill  badge-secondary">{type} post</span>
+                <button className="badge badge-pill  badge-secondary">comments</button>
             </div>
         </>
     ) : (
                 <>
                     <iframe width='100%' src={content} ></iframe>
                     <div className="d-flex justify-content-between ">
-                        <span class="badge badge-pill  badge-secondary">{type} post</span>
-                        <button class="badge badge-pill  badge-secondary">comments</button>
+                        <span className="badge badge-pill  badge-secondary">{type} post</span>
+                        <button className="badge badge-pill  badge-secondary">comments</button>
                     </div>
                 </>
             );
