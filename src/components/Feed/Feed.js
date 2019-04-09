@@ -1,6 +1,6 @@
 import React from "react"
 import fetchData from "../../services/fetchData";
-import PostList from "./PostList";
+import PostList from "./../Posts/PostList";
 
 class Feed extends React.Component {
     constructor(props) {
