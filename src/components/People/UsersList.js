@@ -1,19 +1,27 @@
 import React from "react"
-import UserList from "./UsersList";
 
-
-class People extends React.Component {
+class UserList extends React.Component {
     constructor(props) {
         super(props)
+        this.state = {
+            users: []
+        }
     }
 
+
+
+
     render() {
+
+
+
+
         return (
             <>
-                <UserList />
+                <p>dd</p>
             </>
+
         )
     }
 }
-
-export default People
+export default UserList
