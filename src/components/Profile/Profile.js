@@ -1,7 +1,6 @@
 import React from "react"
 import { Link } from 'react-router-dom'
-import fetchData from "../../services/fetchData"
-import User from '../../entities/User'
+import fetchSingleUser from "../../services/fetchSingleUser"
 
 
 class Profile extends React.Component {
@@ -11,25 +10,30 @@ class Profile extends React.Component {
             user: []
         }
     }
+
     componentDidMount() {
-        fetchData("/users/2/?_embed[]=comments&_embed[]=posts")
-            .then((element) => {
-                return new User(element.id, element.avatarUrl, element.name.first, element.name.last, element.about.bio, element.about.job, element.about.countryCode, element.comments, element.posts)
+        this.fetchUser()
+    }
 
-            })
-
-
+    fetchUser() {
+        const userId = this.props.match.params.id || 2;
+        console.log(userId);
+        fetchSingleUser(userId)
             .then((user) => {
+                console.log(user)
                 this.setState({
                     user
                 })
-                console.log(user)
+
             })
-
-
-
-
     }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.match.params.id !== this.props.match.params.id) {
+            this.fetchUser()
+        }
+    }
+
     render() {
         if (!this.state.user.id) {
             return <p>Loading</p>
@@ -45,7 +49,7 @@ class Profile extends React.Component {
                             <img src={user.img} className="profileheight rounded-circle ml-5 mr-5 mt-2 " alt="" />
                             <div className="card-body text-center">
                                 <h5 className="card-title">{user.name} {user.surname}</h5>
-                                {/* <Link to="/UpdatePage" className="btn text-white bg-secondary">Update Page</Link> */}
+                                {user.id === 2 ? <Link to="/UpdatePage" className="btn text-white bg-secondary">Update Page</Link> : ""}
 
                                 <p className="card-text"><b>About:</b> {user.about}<br /><b>Position:</b> {user.position}<b> Company:</b>{user.company}
                                 </p>
