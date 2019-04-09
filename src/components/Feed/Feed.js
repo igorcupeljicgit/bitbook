@@ -23,7 +23,7 @@ class Feed extends React.Component {
 
         return (
             <>
-                <PostList posts={this.state.posts} />
+                <PostList posts={posts} />
             </>
         )
     }
