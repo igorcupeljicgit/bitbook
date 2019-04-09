@@ -1,13 +1,93 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.profileButtonSubmit{
+  width: 100%;
+}
+.inputimage{
+  width: 100%;
+  margin-bottom: 10px;
+}
+.inputname{
+  width: 100%;
+  margin-bottom: 10px;
+}
+.inputSurname{
+  width: 100%;
+  margin-bottom: 10px;
+}
+.inputInfo{
+  width: 100%;
+  margin-bottom: 10px;
+}
+.profileheight{
+  height: 250px;
+}
+
 body {
     overflow-x: hidden;
 }
 
+#root {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
 #postCard {
-    background-color:white;
     padding: 2%;
-    width: 65%;
-    margin: 2% auto;
+    margin-top: 2%;
     -webkit-box-shadow: 1px 1px 10px 0px rgba(0,0,0,0.75);
--moz-box-shadow: 1px 1px 10px 0px rgba(0,0,0,0.75);
-box-shadow: 1px 1px 10px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 1px 10px 0px rgba(0,0,0,0.75);
+    box-shadow: 1px 1px 10px 0px rgba(0,0,0,0.75);
+}
+
+.videoWrap {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+    margin-bottom: 10px;
+}
+
+iframe {
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
 }

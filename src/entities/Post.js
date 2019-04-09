@@ -41,7 +41,9 @@ class Post extends React.Component {
             </>
         ) : (
                     <>
-                        <iframe width='100%' src={content} ></iframe>
+                        <div className='videoWrap'>
+                            <iframe src={content} ></iframe>
+                        </div>
                         <div className="d-flex justify-content-between ">
                             <span className="badge badge-pill  badge-danger">{type} post</span>
                             <button className="badge badge-pill  badge-secondary"> {comments.length} comments</button>
@@ -49,11 +51,14 @@ class Post extends React.Component {
                     </>
                 );
         return (
-            <div id='postCard'>
-                <Link to={`/posts/${id}`}>
-                    {contentFrame}
-                </Link>
-            </div>
+            <>
+
+                <div id='postCard'>
+                    <Link to={`/posts/${id}`} style={{ textDecoration: 'none', color: 'black' }}>
+                        {contentFrame}
+                    </Link>
+                </div>
+            </>
         )
     }
 }
