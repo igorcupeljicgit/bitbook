@@ -18,7 +18,7 @@ const Header = () => {
                             <NavLink to="/users" className="nav-link" activeClassName="selected">People</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink to="/profile" className="nav-link" activeClassName="selected">Profile</NavLink>
+                            <NavLink to="/users/:id" className="nav-link" activeClassName="selected">Profile</NavLink>
                         </li>
                     </ul>
                 </div>
