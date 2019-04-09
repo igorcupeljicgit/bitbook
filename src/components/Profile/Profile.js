@@ -1,19 +1,28 @@
 import React from "react"
 import { Link } from 'react-router-dom'
 import fetchData from "../../services/fetchData"
+import User from '../../entities/User'
 
 
 class Profile extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            user: {}
+            user: []
         }
     }
     componentDidMount() {
         fetchData("/users/2/?_embed[]=comments&_embed[]=posts")
+            .then((element) => {
+                return new User(element.id, element.avatarUrl, element.name.first, element.name.last, element.about.bio, element.about.job, element.about.countryCode, element.comments, element.posts)
+
+            })
+
+
             .then((user) => {
-                this.setState({ user })
+                this.setState({
+                    user
+                })
                 console.log(user)
             })
 
@@ -25,27 +34,28 @@ class Profile extends React.Component {
         if (!this.state.user.id) {
             return <p>Loading</p>
         }
+        const user = this.state.user
         return (
             <>
 
 
-                <div className="container mt-5">
+                <div className="container mt-4" key={user.id}>
                     <div className="row">
                         <div className=" card shadow-lg col-6 offset-3 text-center ">
-                            <img src="https://d3ieicw58ybon5.cloudfront.net/ex/350.350/shop/product/a33a73a7eb93460abdbe82b6afca7952.jpg" className="rounded-circle mt-5" alt="" />
+                            <img src={user.img} className="profileheight rounded-circle ml-5 mr-5 mt-2 " alt="" />
                             <div className="card-body text-center">
-                                <h5 className="card-title">{this.state.user.name.first}</h5>
+                                <h5 className="card-title">{user.name} {user.surname}</h5>
                                 <Link to="/UpdatePage" className="btn text-white bg-secondary">Update Page</Link>
 
-                                <p className="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                <p className="card-text"><b>About:</b> {user.about}<br /><b>Position:</b> {user.position}<b> Company:</b>{user.company}
                                 </p>
                                 <div className="row">
                                     <div className="rounded-pill bg-secondary text-white col-5">
-                                        <i className="fas fa-copyright blue">  number of posts</i>
+                                        <i className="fas fa-copyright blue">Number of posts {user.posts.length}</i>
 
                                     </div>
                                     <div className="rounded-pill bg-secondary text-white col-5 offset-2">
-                                        <i className="fas fa-copyright">  number of comments</i>
+                                        <i className="fas fa-copyright">  number of comments {user.comments.length}</i>
                                     </div>
                                 </div>
 

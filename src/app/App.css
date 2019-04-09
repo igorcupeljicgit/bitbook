@@ -50,6 +50,9 @@
   width: 100%;
   margin-bottom: 10px;
 }
+.profileheight{
+  height: 250px;
+}
 
 body {
     overflow-x: hidden;

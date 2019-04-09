@@ -7,38 +7,42 @@ class UpdatePage extends React.Component {
             UpdatedStateImg: '',
             UpdatedStateName: '',
             UpdatedStateSurname: '',
-
             UpdatedStateStatus: '',
         }
 
     }
-    ChangeStateImg(event) {
+
+
+
+
+
+    ChangeStateImg = (event) => {
         this.setState({
             UpdatedStateImg: event.target.value,
         })
 
+
     }
-    ChangeStateName(event) {
+    ChangeStateName = (event) => {
         this.setState({
             UpdatedStateName: event.target.value
         })
+
     }
-    ChangeStateSurname(event) {
+    ChangeStateSurname = (event) => {
         this.setState({
             UpdatedStateSurname: event.target.value
         })
+
     }
-    ChangeStateStatus(event) {
+    ChangeStateStatus = (event) => {
         this.setState({
             UpdatedStateStatus: event.target.value
         })
+
     }
-    UpdateStates() {
-        this.ChangeStateImg();
-        this.ChangeStateName();
-        this.ChangeStateSurname();
-        this.ChangeStateStatus();
-    }
+
+
 
 
     render() {
@@ -57,7 +61,7 @@ class UpdatePage extends React.Component {
                     <div className='row'>
                         <div className="col-3"></div>
                         <div className="col-6">
-                            <input onChange={this.ChangeStateImg} className="inputimage" type="text" placeholder="Enter URL of the new Profile Image"></input>
+                            <input value={this.state.UpdatedStateImg} onChange={this.ChangeStateImg} className="inputimage" type="file" placeholder="Enter URL of the new Profile Image"></input>
                         </div>
                         <div className="col-3"></div>
                     </div>
@@ -71,7 +75,7 @@ class UpdatePage extends React.Component {
                     <div className='row'>
                         <div className="col-3"></div>
                         <div className="col-6">
-                            <input value={this.state.UpdatedStateSurname} onChange={this.ChangeStateSurname} className="inputSurname" type="text" placeholder="Enter Profile Surname"></input>
+                            <input value={this.state.UpdatedStateSurname} onChange={this.ChangeStateSurname} className="inputSurname" type="text" placeholder="Enter Profile Surname" ></input>
                         </div>
                         <div className="col-3"></div>
                     </div>
@@ -91,7 +95,7 @@ class UpdatePage extends React.Component {
                     </div>
                 </form>
 
-            </div>
+            </div >
 
 
         )
