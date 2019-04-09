@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 class UpdatePage extends React.Component {
     constructor(props) {
@@ -89,6 +90,7 @@ class UpdatePage extends React.Component {
                     <div className='row'>
                         <div className="col-3"></div>
                         <div className="col-6">
+                            <Link to="/users/:id"><button type="reset">Close</button></Link>
                             <button type="submit">Update Info</button>
                         </div>
                         <div className="col-3"></div>
