@@ -45,7 +45,7 @@ class Profile extends React.Component {
                             <img src={user.img} className="profileheight rounded-circle ml-5 mr-5 mt-2 " alt="" />
                             <div className="card-body text-center">
                                 <h5 className="card-title">{user.name} {user.surname}</h5>
-                                <Link to="/UpdatePage" className="btn text-white bg-secondary">Update Page</Link>
+                                {/* <Link to="/UpdatePage" className="btn text-white bg-secondary">Update Page</Link> */}
 
                                 <p className="card-text"><b>About:</b> {user.about}<br /><b>Position:</b> {user.position}<b> Company:</b>{user.company}
                                 </p>
