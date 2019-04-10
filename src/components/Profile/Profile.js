@@ -58,15 +58,13 @@ class Profile extends React.Component {
                                 <div className="row justify-content-center">
                                     <div className="chips">
                                         <div className="chip">
-                                            <div className="chip-icon">C</div>
-                                            {user.posts.length} posts
+                                            <div className="chip-icon">{user.posts.length}</div>posts
                                         </div>
                                     </div>
                                     <div className="col-3"></div>
                                     <div className="chips">
                                         <div className="chip">
-                                            <div className="chip-icon">C</div>
-                                            {user.comments.length} comments
+                                            <div className="chip-icon">{user.comments.length}</div>comments
                                         </div>
                                     </div>
                                 </div>
