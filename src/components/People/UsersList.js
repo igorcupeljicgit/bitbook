@@ -13,13 +13,13 @@ class UserList extends React.Component {
             users2: []
         }
     }
+
     componentDidMount = () => {
         fetchUsers()
             .then((element) => {
                 console.log(element)
                 return element.map((element) => {
                     return new User(element.id, element.avatarUrl, element.name.first, element.name.last, element.about.bio, element.about.job, element.about.countryCode, element.comments, element.posts, element.createdAt)
-
                 })
 
             })
@@ -31,9 +31,6 @@ class UserList extends React.Component {
 
                 })
             })
-
-
-
     }
 
     filterUsers = (event) => {
@@ -44,16 +41,12 @@ class UserList extends React.Component {
 
 
 
-
-
     render() {
-
-
 
         return (
             <>
                 <div className="my-4 text-center">
-                    <input onChange={this.filterUsers} id='inputLine' type="text" className="form-control" aria-label="Sizing example input" placeholder="Search bitbook users" />
+                    <input onChange={this.filterUsers} id='inputLine' type="text" className="form-control" aria-label="Sizing example input" placeholder="Search bitbook users..." />
                     <button type="button" className="btn btn-primary" disabled>Search</button>
                 </div>
                 {this.state.users.length && !this.state.users2.length && <UserNotFound />}
