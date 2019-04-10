@@ -9,7 +9,7 @@ class User {
         this.position = position;
         this.comments = comments;
         this.posts = posts;
-        this.created = `${new Date(created).getDay()}.${new Date(created).getMonth()}.${new Date(created).getFullYear()}`;
+        this.created = `${new Date(created).getDate()}.${new Date(created).getMonth() + 1}.${new Date(created).getFullYear()}`;
 
 
 
