@@ -1,7 +1,7 @@
 import React from 'react'
 import fetchData from '../../services/fetchData';
 import CommItem from './CommItem';
-import './../../images/noComments.jpg'
+import noComment from './../../images/noComments.jpg'
 
 
 
@@ -26,13 +26,13 @@ class Comments extends React.Component {
         const { comments } = this.state
         console.log(this.state.comments);
         if (!comments) {
-            return <img src='./noComments.jpg' /> // NE VALJA
+            return <img src={noComment} alt="" />
         }
         return (
             <div className="m-3">
                 <div className='text-center'>
-                    <input id='postComm' type='text' placeholder='Comment' name='comment' className='form-control'></input>
-                    <button type="button" class="btn btn-primary">Post</button>
+                    <input id='inputLine' type='text' placeholder='Comment' name='comment' className='form-control'></input>
+                    <button type="button" className="btn btn-primary">Post</button>
                 </div>
                 {comments.map((obj) => {
                     return <CommItem key={obj.id} comment={obj} user={obj.userId} />

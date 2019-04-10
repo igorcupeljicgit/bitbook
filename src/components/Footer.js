@@ -2,13 +2,13 @@ import React from 'react'
 
 const Footer = () => {
     return (
-        <footer>
+        <footer className='mt-5'>
             <div className="card text-center">
                 <div className="card-body text-white bg-dark">
-                    {new Date().getFullYear()}  Team name!!!
+                    &copy; {new Date().getFullYear()} Copyright PROJECT-X
                 </div>
             </div>
-        </footer >
+        </footer>
     )
 }
 

@@ -52,23 +52,14 @@ class UserList extends React.Component {
 
         return (
             <>
-                <div className="input-group mb-3">
-                    <div className="input-group-prepend">
-                        <span className="input-group-text" id="inputGroup-sizing-default">Search users</span>
-                    </div>
-                    <input onChange={this.filterUsers} type="text" class="form-control" aria-label="Sizing example input" />
+                <div className="my-4 text-center">
+                    <input onChange={this.filterUsers} id='inputLine' type="text" className="form-control" aria-label="Sizing example input" placeholder="Search bitbook users" />
+                    <button type="button" className="btn btn-primary" disabled>Search</button>
                 </div>
                 {this.state.users.length && !this.state.users2.length && <UserNotFound />}
                 <Link to='/users/:id'><UserListItem key={this.state.users.id} users={this.state.users2} /></Link>
-
             </>
-
         )
-
-
-
-
-
     }
 }
 export default UserList

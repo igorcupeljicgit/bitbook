@@ -44,25 +44,32 @@ class Profile extends React.Component {
 
 
                 <div className="container mt-4" key={user.id}>
-                    <div className="row">
-                        <div className=" card shadow-lg col-6 offset-3 text-center ">
-                            <img src={user.img} className="profileheight rounded-circle ml-5 mr-5 mt-2 " alt="" />
+                    <div className="row justify-content-center">
+                        <div className="card shadow-lg col-6">
+                            <div className="col text-center">
+                                <img src={user.img} className="mt-4" style={{ borderRadius: '50%', width: '50%' }} alt="" />
+                            </div>
                             <div className="card-body text-center">
                                 <h5 className="card-title">{user.name} {user.surname}</h5>
-                                {user.id === 2 ? <Link to="/UpdatePage" className="btn text-white bg-secondary">Update Page</Link> : ""}
+                                {user.id === 2 ? <Link to="/UpdatePage" className="btn text-white bg-secondary mb-3">Update Page</Link> : ""}
 
-                                <p className="card-text"><b>About:</b> {user.about}<br /><b>Position:</b> {user.position}<b> Company:</b>{user.company}
+                                <p className="card-text"><b>About: </b>{user.about}<br /><b>Position: </b>{user.position}<b className="ml-3"> Company: </b>{user.company}
                                 </p>
-                                <div className="row">
-                                    <div className="rounded-pill bg-secondary text-white col-5">
-                                        <i className="fas fa-copyright blue">Number of posts {user.posts.length}</i>
-
+                                <div className="row justify-content-center">
+                                    <div className="chips">
+                                        <div className="chip">
+                                            <div className="chip-icon">C</div>
+                                            {user.posts.length} posts
+                                        </div>
                                     </div>
-                                    <div className="rounded-pill bg-secondary text-white col-5 offset-2">
-                                        <i className="fas fa-copyright">  number of comments {user.comments.length}</i>
+                                    <div className="col-3"></div>
+                                    <div className="chips">
+                                        <div className="chip">
+                                            <div className="chip-icon">C</div>
+                                            {user.comments.length} comments
+                                        </div>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>

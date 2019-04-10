@@ -26,10 +26,10 @@ class PostPage extends React.Component {
         return type === 'text' ? (
             <p>{this.state.post.text}</p>
         ) : type === 'image' ? (
-            <img src={this.state.post.imageUrl} className="rounded" width="100%" style={{ marginBottom: '10px' }} />
+            <img src={this.state.post.imageUrl} className="rounded" width="100%" style={{ marginBottom: '10px' }} alt="" />
         ) : (
                     <div className='videoWrap'>
-                        <iframe src={this.state.post.videoUrl} ></iframe>
+                        <iframe src={this.state.post.videoUrl} title={this.state.post.sid} ></iframe>
                     </div>
                 );
     }
@@ -39,7 +39,7 @@ class PostPage extends React.Component {
         console.log(post);
 
         if (!post) {
-            return <div className="d-flex justify-content-center">
+            return <div className="d-flex justify-content-center mt-5">
                 <div className="spinner-border" role="status">
                     <span className="sr-only">Loading...</span>
                 </div>

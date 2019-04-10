@@ -19,7 +19,7 @@ class Post extends React.Component {
 
 
     render() {
-        const { type, content, id } = this.props
+        const { type, content, id, sid } = this.props
         const { comments } = this.state
 
 
@@ -33,7 +33,7 @@ class Post extends React.Component {
             </>
         ) : type === 'image' ? (
             <>
-                <img src={content} className="rounded" width="100%" style={{ marginBottom: '10px' }} />
+                <img src={content} className="rounded" width="100%" style={{ marginBottom: '10px' }} alt="" />
                 <div className="d-flex justify-content-between ">
                     <span className="badge badge-pill  badge-info">{type} post</span>
                     <button className="badge badge-pill  badge-secondary"> {comments.length} comments</button>
@@ -42,7 +42,7 @@ class Post extends React.Component {
         ) : (
                     <>
                         <div className='videoWrap'>
-                            <iframe src={content} ></iframe>
+                            <iframe src={content} title={sid} ></iframe>
                         </div>
                         <div className="d-flex justify-content-between ">
                             <span className="badge badge-pill  badge-danger">{type} post</span>

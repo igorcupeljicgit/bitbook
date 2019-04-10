@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom'
 const UserListItem = (props) => {
     const newUsers = props.users.map((user) => {
         return (
-            <Link key={user.id} to={`/users/${user.id}`}>
-                <div className="card mb-3" style={{ maxwidth: '540px' }}>
+            <Link key={user.id} to={`/users/${user.id}`} style={{ textDecoration: 'none', color: 'black' }}>
+                <div id="postCard" className="card mb-3" style={{ maxwidth: '540px' }}>
                     <div className="row no-gutters">
-                        <div className="col-md-2">
+                        <div className="col-md-2 p-3">
                             <img src={user.img} className="card-img rounded-circle imagePeople" alt="..." />
                         </div>
                         <div className="col-md-10">
@@ -18,8 +18,8 @@ const UserListItem = (props) => {
                             </div>
                         </div>
                     </div>
-                </div ></Link>
-
+                </div >
+            </Link>
         )
     })
     return newUsers
