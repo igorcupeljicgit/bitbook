@@ -1,6 +1,7 @@
 import React from 'react'
 import fetchData from '../services/fetchData';
 import { Link } from 'react-router-dom'
+import deletePost from '../services/deletePost';
 
 class Post extends React.Component {
     constructor(props) {
@@ -13,13 +14,23 @@ class Post extends React.Component {
 
 
     componentDidMount() {
-        fetchData(`/posts/${this.props.id}/comments`)
+        this.getComments()
+    }
+
+    getComments() {
+        return fetchData(`/posts/${this.props.id}/comments`)
             .then(comments => this.setState({ comments }))
+    }
+
+    deletePost(postId, e) {
+        e.preventDefault()
+
+        deletePost(postId)
     }
 
 
     render() {
-        const { type, content, id, sid } = this.props
+        const { type, content, id, userId, sid } = this.props
         const { comments } = this.state
 
 
@@ -36,12 +47,17 @@ class Post extends React.Component {
         return (
             <>
 
-                <Link to={`/posts/${id}`} style={{ textDecoration: 'none', color: 'black' }}>
+                <Link to={`/posts/${id}`} style={{ textDecoration: 'none', color: 'black', zIndex: '0' }}>
                     <div className='shadow customCard'>
                         {contentFrame}
                         <div className="d-flex justify-content-between ">
                             <span className={`badge badge-pill badge-${type === 'text' ? 'primary' : type === 'image' ? 'warning' : 'danger'}`}>{type}</span>
-                            <span className="badge badge-pill badge-secondary"> {comments.length} comments</span>
+                            <span>
+                                <span className="badge badge-pill badge-secondary"> {comments.length} comments</span>
+                                {/* {userId == '2' ?  */}
+                                <span className="trashcan" onClick={(e) => this.deletePost(id, e)}><i className="far fa-trash-alt ml-3" style={{ zIndex: '1' }}></i></span>
+                                {/* : <></>} */}
+                            </span>
                         </div>
                     </div>
                 </Link>

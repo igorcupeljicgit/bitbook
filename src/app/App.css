@@ -131,6 +131,10 @@ iframe {
   cursor: pointer;
 }
 
+.trashcan:hover {
+  color: red;
+}
+
 
 .chip {
   display: inline-block;
