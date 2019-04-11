@@ -12,7 +12,7 @@ class Post extends React.Component {
     }
 
 
-    componentWillMount() {
+    componentDidMount() {
         fetchData(`/posts/${this.props.id}/comments`)
             .then(comments => this.setState({ comments }))
     }
@@ -40,7 +40,7 @@ class Post extends React.Component {
                     <div className='shadow customCard'>
                         {contentFrame}
                         <div className="d-flex justify-content-between ">
-                            <span className={`badge badge-pill badge-${type === 'text' ? 'primary' : type === 'image' ? 'warning' : 'danger'}`}>{type} post</span>
+                            <span className={`badge badge-pill badge-${type === 'text' ? 'primary' : type === 'image' ? 'warning' : 'danger'}`}>{type}</span>
                             <span className="badge badge-pill badge-secondary"> {comments.length} comments</span>
                         </div>
                     </div>

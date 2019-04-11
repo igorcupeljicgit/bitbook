@@ -5,12 +5,11 @@ import User from '../../entities/User'
 import { Link } from 'react-router-dom'
 import UserNotFound from "./UserNotFound"
 
-class UserList extends React.Component {
+class UsersList extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
             users: [],
-            users2: [],
             searchInput: ""
         }
     }
@@ -26,7 +25,6 @@ class UserList extends React.Component {
             .then((users) => {
                 this.setState({
                     users: users,
-                    users2: users
                 })
             })
     }
@@ -34,14 +32,15 @@ class UserList extends React.Component {
     filterUsers = (event) => {
         this.setState({
             searchInput: event.target.value,
-            users2: this.state.users.filter((user) => (user.name.toLowerCase().indexOf(event.target.value) !== -1) || (user.surname.toLowerCase().indexOf(event.target.value) !== -1))
         })
     }
 
 
 
     render() {
-        const { users, users2, searchInput } = this.state
+        const { users, searchInput } = this.state
+
+        const filteredUsers = users.filter((user) => (user.name.toLowerCase().indexOf(searchInput.toLowerCase()) !== -1));
 
 
         return (
@@ -57,12 +56,12 @@ class UserList extends React.Component {
                     <button type="button" className="btn btn-primary" disabled>Search</button>
                 </div>
                 <div className='row justify-content-center'>
-                    {(users.length && !users2.length) ? <UserNotFound /> :
-                        <Link to='/users/:id'><UserListItem key={users.id} users={users2} /></Link>}
+                    {(!filteredUsers.length) ? <UserNotFound /> :
+                        <UserListItem key={users.id} users={filteredUsers} />}
                 </div>
             </>
         )
     }
 }
 
-export default UserList
+export default UsersList

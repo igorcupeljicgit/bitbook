@@ -127,6 +127,10 @@ iframe {
   outline: none
 }
 
+.dropdown-item:hover {
+  cursor: pointer;
+}
+
 
 .chip {
   display: inline-block;

@@ -10,10 +10,6 @@ class User {
         this.comments = comments;
         this.posts = posts;
         this.created = `${new Date(created).getDate()}.${new Date(created).getMonth() + 1}.${new Date(created).getFullYear()}`;
-
-
-
-
     }
 }
 export default User
