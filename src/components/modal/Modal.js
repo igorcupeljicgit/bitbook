@@ -1,5 +1,5 @@
 import React from 'react';
-import postUpdate from "../../services/postUpdate"
+import profileUpdate from "../../services/postUpdate"
 
 import './Modal.css';
 class Modal extends React.Component {
@@ -36,7 +36,7 @@ class Modal extends React.Component {
             }
         }
 
-        postUpdate(data)
+        profileUpdate(data)
             .then(() => {
                 this.props.onUpdateSuccess()
             })
