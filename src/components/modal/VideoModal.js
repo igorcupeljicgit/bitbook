@@ -1,84 +1,76 @@
-import React from 'react';
-// import postUpdate from "../../services/postUpdate"
-import './ModalPosts.css';
+import React from "react";
+import "./ModalPosts.css";
+import createPost from "../../services/UpdatePost";
 
 class VideoModal extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            id: 2,
-            textpost: ""
-        }
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      id: 2,
+      videoUrl: ""
+    };
+  }
 
-    onInputChange = (e) => {
-        this.setState({
-            [e.target.name]: e.target.value
-        })
-    }
+  onInputChange = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  };
 
-    changeData = () => {
-        const data = {
-            avatarUrl: this.state.avatarInput,
-            name: {
-                first: this.state.nameInput,
-                last: this.state.surnameInput,
-            },
-            about: {
-                bio: this.state.aboutInput,
-                job: this.state.aboutJob,
-                countryCode: this.state.aboutCompany,
-            }
-        }
+  changeData = () => {
+    const data = {
+      type: "video",
+      videoUrl: `https://www.youtube.com/embed/${this.state.videoUrl.slice(
+        this.state.videoUrl.indexOf("=") + 1
+      )}`
+    };
 
-        // postUpdate(data)
-        //     .then(() => {
-        //         this.props.onUpdateSuccess()
-        //     })
-    }
+    createPost(data).then(() => {
+      this.props.onUpdateSuccess();
+    });
+  };
 
+  render() {
+    return (
+      <div
+        className="modal-wrapper main "
+        style={{
+          transform: this.props.show ? "translateY(0vh)" : "translateY(-100vh)",
+          opacity: this.props.show ? "1" : "0"
+        }}
+      >
+        <div className="modal-header">
+          <h3>New Video post</h3>
+          <span className="close-modal-btn" onClick={this.props.close}>
+            ×
+          </span>
+        </div>
+        <div className="modal-body row text-left">
+          <label className="ml-3">Enter video URL</label>
+          <div className="col-12">
+            <input
+              className="videoPost"
+              value={this.state.videoUrl}
+              name="videoUrl"
+              onChange={this.onInputChange}
+              type="text"
+            />
+          </div>
 
-    render() {
-        return (
-            <div className="modal-wrapper main "
-                style={{
-                    transform: this.props.show ? 'translateY(0vh)' : 'translateY(-100vh)',
-                    opacity: this.props.show ? '1' : '0'
-                }}>
-                <div className="modal-header">
-                    <h3>New Vide post</h3>
-                    <span className="close-modal-btn" onClick={this.props.close}>×</span>
-                </div>
-                <div className="modal-body row text-left">
-                    <label className="ml-3">Enter video URL</label>
-                    <div className="col-12">
+          {this.props.children}
+        </div>
 
-
-                        <input className="videoPost" value={this.state.textpost} name="textpost" onChange={this.onInputChange} type="text"></input>
-                    </div>
-
-
-
-                    {this.props.children}
-
-                </div>
-
-
-                <div className="modal-footer">
-                    <button className="btn-cancel" onClick={this.props.close}>Close</button>
-                    <button onClick={this.changeData} className="btn-continue">Create post</button>
-                </div>
-            </div >
-
-
-        )
-
-    }
-
-
+        <div className="modal-footer">
+          <button className="btn-cancel" onClick={this.props.close}>
+            Close
+          </button>
+          <button onClick={this.changeData} className="btn-continue">
+            Create post
+          </button>
+        </div>
+      </div>
+    );
+  }
 }
-
-
-
 
 export default VideoModal;

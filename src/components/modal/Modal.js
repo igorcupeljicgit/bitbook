@@ -1,5 +1,5 @@
 import React from 'react';
-import profileUpdate from "../../services/postUpdate"
+import profileUpdate from "../../services/ProfileUpdate"
 
 import './Modal.css';
 class Modal extends React.Component {
