@@ -62,7 +62,7 @@ class MainButton extends React.Component {
 
         <div id="container-floating">
           <div
-            className="nd4 nds"
+            className="nd4 nds bg-warning "
             onClick={() => this.openModal("image")}
             data-placement="left"
             data-original-title="contract@gmail.com"
@@ -74,7 +74,7 @@ class MainButton extends React.Component {
           </div>
 
           <div
-            className="nd3 nds videoButton"
+            className="nd3 nds bg-danger  videoButton"
             onClick={() => this.openModal("video")}
             data-placement="left"
             data-original-title="Reminder"
@@ -83,12 +83,12 @@ class MainButton extends React.Component {
           </div>
 
           <div
-            className="nd1 nds"
+            className="nd1 nds bg-primary "
             onClick={() => this.openModal("text")}
             data-placement="left"
             data-original-title="Edoardo@live.it"
           >
-            <img alt="" className="reminder " />
+            <img alt="" className="reminder bg-primary" />
             <p className="letter">T</p>
           </div>
 

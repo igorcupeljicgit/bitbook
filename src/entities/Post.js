@@ -67,7 +67,7 @@ class Post extends React.Component {
                     : "danger"
                 }`}
               >
-                {type} post
+                {type}
               </span>
               <span className="badge badge-pill badge-secondary">
                 {" "}
