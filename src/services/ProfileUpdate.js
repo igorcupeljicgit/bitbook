@@ -1,6 +1,6 @@
 import { BASE_API_URL } from '../shared/constants'
 
-function postUpdate(data) {
+function profileUpdate(data) {
     const myFetch = fetch(BASE_API_URL + "/users/2", {
         method: 'PATCH',
         headers: new Headers({
@@ -19,4 +19,4 @@ function postUpdate(data) {
 
 }
 
-export default postUpdate
+export default profileUpdate

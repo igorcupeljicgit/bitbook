@@ -1,96 +1,95 @@
 .modal-wrapper {
-    background: white;
-    border: 1px solid #d0cccc;
-    box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2), 0 7px 20px 0 rgba(0,0,0,0.17);
-    margin: 0px auto 0;
-    transition: all .8s;
-    width: 60%;
-    position: relative;
-    top: -400px;
-    z-index: 999999;
+  background: white;
+  border: 1px solid #d0cccc;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+  margin: 0px auto 0;
+  transition: all 0.8s;
+  width: 60%;
+  position: relative;
+  top: -400px;
+  z-index: 999999;
 }
 
 .modal-header {
-    background: #263238;
-    height: 50px;
-    line-height: 40px;
-    padding: 5px 20px;
-    text-align: right;
+  background: #263238;
+  height: 50px;
+  line-height: 40px;
+  padding: 5px 20px;
+  text-align: right;
 }
 
 .modal-header h3 {
-    color: white;
-    float: left;
-    margin: 0;
-    padding: 0;
+  color: white;
+  float: left;
+  margin: 0;
+  padding: 0;
 }
 
 .modal-body {
-    padding: 10px 15px;
-    text-align: center;
+  padding: 10px 15px;
+  text-align: center;
 }
 
 .modal-footer {
-    background: #263238;
-    height: 50px;
-    padding: 15px;
+  background: #263238;
+  height: 50px;
+  padding: 15px;
 }
 
 .close-modal-btn {
-    color: white;
-    cursor: pointer;
-    float: right;
-    font-size: 30px;
-    margin: 0;
+  color: white;
+  cursor: pointer;
+  float: right;
+  font-size: 30px;
+  margin: 0;
 }
 
 .close-modal-btn:hover {
-    color: black;
+  color: black;
 }
 
-.btn-cancel, .btn-continue {
-    background: coral;
-    border: none;
-    color: white;
-    cursor: pointer;
-    font-weight: bold;
-    outline: none;
-    padding: 10px;
-    border-radius: 2px;
+.btn-cancel,
+.btn-continue {
+  background: coral;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  outline: none;
+  padding: 10px;
+  border-radius: 2px;
 }
 
 .btn-cancel {
-    background-color: grey;
-    float: left;
+  background-color: grey;
+  float: left;
 }
 
 .btn-continue {
-    background-color: grey;
-    float: right;
+  background-color: grey;
+  float: right;
 }
 
 .back-drop {
-    background-color: rgba(48, 49, 48, 0.42);
-    height: 100%;
-    position: center;
-    transition: all 1.3s;
-    
+  background-color: rgba(48, 49, 48, 0.42);
+  height: 100%;
+  position: center;
+  transition: all 1.3s;
 }
 
 .open-modal-btn {
-    margin: 15px;
-    padding: 10px;
-    font-weight: bold;
+  margin: 15px;
+  padding: 10px;
+  font-weight: bold;
 }
 
 .modal {
-    text-align:center;
+  text-align: center;
 }
 .modal-dialog {
-    display: inline-block;
-    width: auto;
+  display: inline-block;
+  width: auto;
 }
 .main-responsive {
-    max-height: calc(100vh - 25px);
+  max-height: calc(100vh - 25px);
 }
-
