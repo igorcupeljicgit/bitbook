@@ -19,8 +19,6 @@ class Feed extends React.Component {
     render() {
         const { posts } = this.state
 
-        console.log(posts);
-
         return (
             <>
                 <PostList posts={posts} />

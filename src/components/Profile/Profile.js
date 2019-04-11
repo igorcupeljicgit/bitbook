@@ -62,13 +62,11 @@ class Profile extends React.Component {
         const user = this.state.user
         return (
             <>
-
-
                 <div className="container mt-4" key={user.id}>
                     {this.state.isShowing ? <div onClick={this.closeModalHandler} className="back-drop"></div> : null}
 
                     <div className="row justify-content-center">
-                        <div className="card shadow-lg col-6">
+                        <div className="card customCard shadow col-6">
                             <div className="col text-center">
                                 <img src={user.img} className="mt-4" style={{ borderRadius: '50%', width: '50%' }} alt="" />
                             </div>
@@ -93,20 +91,15 @@ class Profile extends React.Component {
                                 </div>
                             </div>
                         </div>
+
                         <Modal
                             className="modal"
                             show={this.state.isShowing}
                             close={this.closeModalHandler}
                             onUpdateSuccess={this.onUpdateSuccess}
-                        >
-
-                        </Modal>
+                        ></Modal>
                     </div>
-
                 </div >
-
-
-
             </>
         )
     }
