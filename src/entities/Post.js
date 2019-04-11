@@ -23,15 +23,15 @@ class Post extends React.Component {
         const { comments } = this.state
 
 
-        const contentFrame = type === 'text' ? ( <p>{content}</p> ) : type === 'image' ? (
+        const contentFrame = type === 'text' ? (<p>{content}</p>) : type === 'image' ? (
 
-                <img src={content} className="rounded" width="100%" style={{ marginBottom: '10px' }} alt="" />
+            <img src={content} className="rounded" width="100%" style={{ marginBottom: '10px' }} alt="" />
 
         ) : (
-                    <div className='videoWrap'>
-                        <iframe src={content} title={sid} ></iframe>
-                    </div>
-                );
+                <div className='videoWrap'>
+                    <iframe src={content} title={sid} ></iframe>
+                </div>
+            );
 
         return (
             <>
@@ -40,8 +40,8 @@ class Post extends React.Component {
                     <div className='shadow customCard'>
                         {contentFrame}
                         <div className="d-flex justify-content-between ">
-                            <span className={`badge badge-pill  badge-${type === 'text' ? 'primary' : type === 'image' ? 'warning' : 'danger'}`}>{type} post</span>
-                            <span className="badge badge-pill  badge-info"> {comments.length} comments</span>
+                            <span className={`badge badge-pill badge-${type === 'text' ? 'primary' : type === 'image' ? 'warning' : 'danger'}`}>{type} post</span>
+                            <span className="badge badge-pill badge-secondary"> {comments.length} comments</span>
                         </div>
                     </div>
                 </Link>

@@ -1,26 +1,33 @@
 body {
   overflow-x: hidden;
-  background: #4dbdbd;
+  background: #686576;
 }
 
 
 
-/* Tranquil Cove */
+/* Color Scheme */
 nav, footer, .chip-icon {
-  background: #38aab1 !important;
+  background: #44414f !important;
 }
 .customCard {
-  background: #eae1c7 !important;
+  background: #e3d8d8 !important;
 }
-/* [mutno] {
-  background: #7cb7b1;
-} */
+.badge-secondary {
+  background: #b0a1a1 !important;
+}
 .chip {
-  background: #93dbe0;
+  background: #b0a1a1;
 }
-button.btn, button.bg-secondary {
-  background: #38aab1 !important;
+button.btn, button.bg-secondary{
+  background: #44414f !important;
   border: none;
+}
+button.bg-secondary:focus,
+button.bg-secondary:hover,
+button.btn-primary:focus,
+button.btn-primary:hover {
+  background-color: #5b5868 !important;
+  box-shadow: none;
 }
 
 
@@ -64,11 +71,16 @@ input {
   background-color: transparent !important;
 }
 
-/* PLS */
-input:-ms-input-placeholder, input::-webkit-input-placeholder {
-  color: #fff;
-  opacity: 1;
+/* input.form-control */
+.form-control[value] {
+  color: #fff !important;
+  opacity: 1 !important;
 }
+.form-control::-webkit-input-placeholder { color: white; opacity: 0.5 }  /* WebKit, Blink, Edge */
+.form-control:-moz-placeholder { color: white; opacity: 0.5 }  /* Mozilla Firefox 4 to 18 */
+.form-control::-moz-placeholder { color: white; opacity: 0.5 }  /* Mozilla Firefox 19+ */
+.form-control:-ms-input-placeholder { color: white; opacity: 0.5 }  /* Internet Explorer 10-11 */
+.form-control::-ms-input-placeholder { color: white; opacity: 0.5 }  /* Microsoft Edge */
 
 
 .inputimage, .inputname, .inputSurname, .inputInfo{
@@ -113,10 +125,6 @@ iframe {
   border-color: none;
   box-shadow: none;
   outline: none
-}
-button.bg-secondary:focus, button.bg-secondary:hover {
-  background-color: #4dbdbd !important;
-  box-shadow: none;
 }
 
 

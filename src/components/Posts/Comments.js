@@ -23,7 +23,7 @@ class Comments extends React.Component {
 
     fetchComments() {
         fetchData(`/posts/${this.props.id}/comments`)
-            .then(comments => this.setState({ comments }))
+            .then(comments => this.setState({ comments: comments.reverse() }))
     }
 
     newComm = (e) => {
@@ -54,8 +54,6 @@ class Comments extends React.Component {
         const { comments } = this.state;
         console.log(this.state.comments);
 
-        let tempArray = comments;
-        let reversed = tempArray.reverse();
 
         if (!comments) {
             return <img src={noComment} alt="" />
@@ -72,10 +70,10 @@ class Comments extends React.Component {
                             value={this.state.commentInput}
                             className='form-control inputLine'
                             style={{ width: '80%' }} />
-                        <button type="submit" class="btn btn-primary">Post</button>
+                        <button type="submit" className="btn btn-primary">Post</button>
                     </form>
                 </div>
-                {reversed.map((obj) => {
+                {comments.map((obj) => {
                     return <CommItem key={obj.id} comment={obj} user={obj.userId} />
                 })}
             </div>
