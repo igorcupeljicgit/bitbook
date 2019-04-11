@@ -24,8 +24,8 @@ class PostList extends React.Component {
               post.type === "text"
                 ? post.text
                 : post.type === "image"
-                ? post.imageUrl
-                : post.videoUrl
+                  ? post.imageUrl
+                  : post.videoUrl
             }
           />
         ))}
