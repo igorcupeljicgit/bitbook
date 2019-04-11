@@ -1,75 +1,119 @@
-.imagePeople{
-  max-width: 150px;
-}
-.profileButtonSubmit{
-  width: 100%;
-}
-.inputimage{
-  width: 100%;
-  margin-bottom: 10px;
-}
-.inputname{
-  width: 100%;
-  margin-bottom: 10px;
-}
-.inputSurname{
-  width: 100%;
-  margin-bottom: 10px;
-}
-.inputInfo{
-  width: 100%;
-  margin-bottom: 10px;
-}
-.profileheight{
-  height: 250px;
+body {
+  overflow-x: hidden;
+  background: #686576;
 }
 
-body {
-    overflow-x: hidden;
+
+
+/* Color Scheme */
+nav, footer, .chip-icon {
+  background: #44414f !important;
 }
+.customCard {
+  background: #e3d8d8 !important;
+}
+.badge-secondary {
+  background: #b0a1a1 !important;
+}
+.chip {
+  background: #b0a1a1;
+}
+button.btn, button.bg-secondary{
+  background: #44414f !important;
+  border: none;
+}
+button.bg-secondary:focus,
+button.bg-secondary:hover,
+button.btn-primary:focus,
+button.btn-primary:hover {
+  background-color: #5b5868 !important;
+  box-shadow: none;
+}
+
+
 
 #root {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
-
 main {
-    flex: 1 0 auto;
+  flex: 1 0 auto;
 }
 
-#postCard {
-    padding: 2%;
-    margin-top: 2%;
-    -webkit-box-shadow: 1px 1px 10px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 1px 1px 10px 0px rgba(0,0,0,0.75);
-    box-shadow: 1px 1px 10px 0px rgba(0,0,0,0.75);
+a:hover {
+  text-decoration: none;
 }
 
-.videoWrap {
-    position: relative;
-    width: 100%;
-    height: 0;
-    padding-bottom: 56.25%;
-    margin-bottom: 10px;
+.navbar-brand {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
 }
 
-iframe {
-    position: absolute;
-    top:0;
-    left:0;
-    width: 100%;
-    height: 100%;
+.customCard {
+  padding: 2%;
+  margin-top: 3%;
+  border-radius: 5px;
 }
 
-#inputLine{
+.shadow {
+  -webkit-box-shadow: 1px 1px 10px 0px rgba(0,0,0,0.75) !important;
+  -moz-box-shadow: 1px 1px 10px 0px rgba(0,0,0,0.75) !important;
+  box-shadow: 1px 1px 10px 0px rgba(0,0,0,0.75) !important;
+}
+
+.imagePeople, .profileButtonSubmit{
+  width: 100%;
+}
+input {
+  background-color: transparent !important;
+}
+
+/* input.form-control */
+.form-control[value] {
+  color: #fff !important;
+  opacity: 1 !important;
+}
+.form-control::-webkit-input-placeholder { color: white; opacity: 0.5 }  /* WebKit, Blink, Edge */
+.form-control:-moz-placeholder { color: white; opacity: 0.5 }  /* Mozilla Firefox 4 to 18 */
+.form-control::-moz-placeholder { color: white; opacity: 0.5 }  /* Mozilla Firefox 19+ */
+.form-control:-ms-input-placeholder { color: white; opacity: 0.5 }  /* Internet Explorer 10-11 */
+.form-control::-ms-input-placeholder { color: white; opacity: 0.5 }  /* Microsoft Edge */
+
+
+.inputimage, .inputname, .inputSurname, .inputInfo{
+  width: 100%;
+  margin-bottom: 10px;
+}
+.inputLine{
   display: inline-block;
-  width: 80%;
   margin-right: 1%;
   margin-bottom: 2%;
   border-left: none;
   border-top: none;
   border-right:none;
+}
+.profileheight{
+  height: 250px;
+}
+
+.videoWrap {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+  margin-bottom: 10px;
+}
+
+iframe {
+  position: absolute;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  border: none;
 }
 
 .form-control:focus{
@@ -77,14 +121,15 @@ iframe {
   box-shadow: none;
   outline: none
 }
-
-a:hover {
-  text-decoration: none;
+.btn-primary:focus {
+  border-color: none;
+  box-shadow: none;
+  outline: none
 }
+
 
 .chip {
   display: inline-block;
-  background: #e0e0e0;
   padding: 0 12px;
   border-radius: 32px;
   font-size: 13px;
@@ -96,7 +141,6 @@ a:hover {
 .chip-icon {
   display: block;
   float: left;
-  background: #006b95;
   width: 32px;
   border-radius: 50%;
   text-align: center;

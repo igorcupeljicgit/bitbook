@@ -23,11 +23,11 @@ class CommItem extends React.Component {
 
         const firstName = user.name ? user.name.first : ''
 
-        return <div className="card mb-3" >
+        return <div className="card mb-3 customCard" >
             <div className="row no-gutters">
-                <div className="col-md-2 p-3">
-                    <img src={user.avatarUrl} className="card-img" style={{ borderRadius: '50%' }} alt="..." />
-                    <h5 className="card-title text-center">{firstName}</h5>
+                <div className="col-md-2 text-center">
+                    <img src={user.avatarUrl} className="card-img" style={{ borderRadius: '50%', maxWidth: '5em' }} alt="..." />
+                    <h5 className="card-title text-center m-0">{firstName}</h5>
                 </div>
                 <div className="col-md-10">
                     <div className="card-body">

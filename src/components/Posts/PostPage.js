@@ -24,9 +24,9 @@ class PostPage extends React.Component {
 
 
         return type === 'text' ? (
-            <p>{this.state.post.text}</p>
+            <p className='customCard'>{this.state.post.text}</p>
         ) : type === 'image' ? (
-            <img src={this.state.post.imageUrl} className="rounded" width="100%" style={{ marginBottom: '10px' }} alt="" />
+            <img src={this.state.post.imageUrl} width="100%" alt="" />
         ) : (
                     <div className='videoWrap'>
                         <iframe src={this.state.post.videoUrl} title={this.state.post.sid} ></iframe>
@@ -47,7 +47,7 @@ class PostPage extends React.Component {
         }
         return (
             <div className='container-fluid col-lg-8'>
-                <div id='postCard'>
+                <div className='shadow mt-5'>
                     {this.mainContent()}
                 </div>
                 <Comments id={post.id} />

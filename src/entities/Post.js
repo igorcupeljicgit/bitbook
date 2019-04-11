@@ -23,39 +23,26 @@ class Post extends React.Component {
         const { comments } = this.state
 
 
-        const contentFrame = type === 'text' ? (
-            <>
-                <p>{content}</p>
-                <div className="d-flex justify-content-between ">
-                    <span className="badge badge-pill  badge-primary">{type} post</span>
-                    <button className="badge badge-pill  badge-secondary"> {comments.length} comments</button>
-                </div>
-            </>
-        ) : type === 'image' ? (
-            <>
-                <img src={content} className="rounded" width="100%" style={{ marginBottom: '10px' }} alt="" />
-                <div className="d-flex justify-content-between ">
-                    <span className="badge badge-pill  badge-info">{type} post</span>
-                    <button className="badge badge-pill  badge-secondary"> {comments.length} comments</button>
-                </div>
-            </>
+        const contentFrame = type === 'text' ? (<p>{content}</p>) : type === 'image' ? (
+
+            <img src={content} className="rounded" width="100%" style={{ marginBottom: '10px' }} alt="" />
+
         ) : (
-                    <>
-                        <div className='videoWrap'>
-                            <iframe src={content} title={sid} ></iframe>
-                        </div>
-                        <div className="d-flex justify-content-between ">
-                            <span className="badge badge-pill  badge-danger">{type} post</span>
-                            <button className="badge badge-pill  badge-secondary"> {comments.length} comments</button>
-                        </div>
-                    </>
-                );
+                <div className='videoWrap'>
+                    <iframe src={content} title={sid} ></iframe>
+                </div>
+            );
+
         return (
             <>
 
                 <Link to={`/posts/${id}`} style={{ textDecoration: 'none', color: 'black' }}>
-                    <div id='postCard'>
+                    <div className='shadow customCard'>
                         {contentFrame}
+                        <div className="d-flex justify-content-between ">
+                            <span className={`badge badge-pill badge-${type === 'text' ? 'primary' : type === 'image' ? 'warning' : 'danger'}`}>{type} post</span>
+                            <span className="badge badge-pill badge-secondary"> {comments.length} comments</span>
+                        </div>
                     </div>
                 </Link>
             </>

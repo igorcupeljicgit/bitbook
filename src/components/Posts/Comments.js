@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 import fetchData from '../../services/fetchData';
 import CommItem from './CommItem';
 import noComment from './../../images/noComments.jpg'
@@ -55,15 +56,17 @@ class Comments extends React.Component {
             return <img src={noComment} alt="" />
         }
         return (
-            <div className="m-3">
-                <div className='text-center'>
+            <div className="m-4 mt-5">
+                <div className='text-center mb-3'>
+
                     <form action="" onSubmit={this.newComm}>
-                        <input id='inputLine' type='text'
+                        <input type='text'
                             placeholder='Add a comment...'
                             onChange={this.handleCommentInput}
                             name='comment'
                             value={this.state.commentInput}
-                            className='form-control' />
+                            className='form-control inputLine'
+                            style={{ width: '80%' }} />
                         <button type="submit" className="btn btn-primary">Post</button>
                     </form>
                 </div>

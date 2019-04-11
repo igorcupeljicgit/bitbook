@@ -8,11 +8,11 @@ const Header = () => {
 
     return (
         <header>
-            <nav className="navbar navbar-expand-lg navbar navbar-dark bg-dark row justify-content-between">
+            <nav className="navbar navbar-expand-lg navbar navbar-dark row justify-content-between shadow">
                 <div className="container">
                     <NavLink to='/' className="navbar-brand">
-                        <img src={bitbooklogo} className=" mb-1" height="30px" alt="" />
-                        itbook
+                        <img src={bitbooklogo} height="26px" alt="" />
+                        <span>itbook</span>
                     </NavLink>
                     <ul className="navbar-nav">
                         <li className="nav-item">

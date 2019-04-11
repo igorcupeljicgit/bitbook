@@ -2,11 +2,9 @@ import React from 'react'
 
 const Footer = () => {
     return (
-        <footer className='mt-5'>
-            <div className="card text-center">
-                <div className="card-body text-white bg-dark">
-                    &copy; {new Date().getFullYear()} Copyright PROJECT-X
-                </div>
+        <footer className='page-footer font-small mt-5'>
+            <div className="footer-copyright text-center py-3" >
+                <span style={{ opacity: '0.5' }}>&copy; {new Date().getFullYear()} Copyright</span> <span className='text-white'>PROJECT-X</span>
             </div>
         </footer>
     )

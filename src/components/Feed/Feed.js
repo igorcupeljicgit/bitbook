@@ -13,13 +13,11 @@ class Feed extends React.Component {
 
     componentDidMount() {
         fetchData('/posts')
-            .then(posts => this.setState({ posts }))
+            .then(posts => this.setState({ posts: posts.reverse() }))
     }
 
     render() {
         const { posts } = this.state
-
-        console.log(posts);
 
         return (
             <>
