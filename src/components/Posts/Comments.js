@@ -1,9 +1,7 @@
 import React from 'react'
-
-
 import fetchData from '../../services/fetchData';
 import CommItem from './CommItem';
-import noComment from './../../images/noComments.jpg'
+import noComments from './../../images/noComments.jpg'
 import postComm from '../../services/postComm';
 
 
@@ -52,13 +50,9 @@ class Comments extends React.Component {
     render() {
         const { comments } = this.state;
 
-        if (!comments) {
-            return <img src={noComment} alt="" />
-        }
         return (
             <div className="m-4 mt-5">
                 <div className='text-center mb-3'>
-
                     <form action="" onSubmit={this.newComm}>
                         <input type='text'
                             placeholder='Add a comment...'
@@ -70,9 +64,13 @@ class Comments extends React.Component {
                         <button type="submit" className="btn btn-primary">Post</button>
                     </form>
                 </div>
-                {comments.map((obj) => {
-                    return <CommItem key={obj.id} comment={obj} user={obj.userId} />
-                })}
+                {
+                    comments.length != 0 ? comments.map((obj) => {
+                        return <CommItem key={obj.id} comment={obj} user={obj.userId} />
+                    }) : <div className="mb-3">
+                            <img src={noComments} className="col-12" alt="no comments" />
+                        </div>
+                }
             </div>
         )
     }

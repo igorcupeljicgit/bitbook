@@ -1,15 +1,12 @@
 import React from "react"
-import UserList from "./UsersList";
+import UsersList from "./UsersList";
 
 
 class People extends React.Component {
 
     render() {
-        return (
-            <>
-                <UserList />
-            </>
-        )
+        return <UsersList />
+
     }
 }
 
