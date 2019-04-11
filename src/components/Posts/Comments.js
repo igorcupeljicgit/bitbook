@@ -42,7 +42,6 @@ class Comments extends React.Component {
     }
 
     handleCommentInput = (e) => {
-
         const commentInput = e.target.value
         this.setState({
             commentInput
@@ -52,8 +51,6 @@ class Comments extends React.Component {
 
     render() {
         const { comments } = this.state;
-        console.log(this.state.comments);
-
 
         if (!comments) {
             return <img src={noComment} alt="" />

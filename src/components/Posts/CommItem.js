@@ -21,8 +21,6 @@ class CommItem extends React.Component {
         const { comment } = this.props
         const { user } = this.state
 
-        console.log(user);
-
         const firstName = user.name ? user.name.first : ''
 
         return <div className="card mb-3 customCard" >

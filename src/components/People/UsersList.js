@@ -14,12 +14,12 @@ class UserList extends React.Component {
             searchInput: ""
         }
     }
+
     componentDidMount = () => {
         fetchUsers()
             .then((element) => {
                 return element.map((element) => {
                     return new User(element.id, element.avatarUrl, element.name.first, element.name.last, element.about.bio, element.about.job, element.about.countryCode, element.comments, element.posts, element.createdAt)
-
                 })
 
             })
