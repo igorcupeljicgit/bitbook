@@ -131,7 +131,7 @@ iframe {
   outline: none
 }
 
-.dropdown-item:hover {
+.dropdown-item:hover, .trashcan:hover {
   cursor: pointer;
 }
 

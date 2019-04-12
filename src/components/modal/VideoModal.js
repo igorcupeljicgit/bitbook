@@ -22,7 +22,8 @@ class VideoModal extends React.Component {
       type: "video",
       videoUrl: `https://www.youtube.com/embed/${this.state.videoUrl.slice(
         this.state.videoUrl.indexOf("=") + 1
-      )}`
+      )}`,
+      userId: 2
     };
 
     createPost(data).then(() => {

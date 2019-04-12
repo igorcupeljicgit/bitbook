@@ -21,7 +21,8 @@ class ImageModal extends React.Component {
   changeData = () => {
     const data = {
       type: "image",
-      imageUrl: this.state.imageUrl
+      imageUrl: this.state.imageUrl,
+      userId: 2
     };
 
     createPost(data).then(() => {

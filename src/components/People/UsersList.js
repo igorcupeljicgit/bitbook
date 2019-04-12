@@ -2,8 +2,7 @@ import React from "react"
 import fetchUsers from '../../services/fetchUsers'
 import UserListItem from './UsersListItem'
 import User from '../../entities/User'
-import { Link } from 'react-router-dom'
-import UserNotFound from "./UserNotFound"
+import SearchFail from "../../shared/SearchFail"
 
 class UsersList extends React.Component {
     constructor(props) {
@@ -56,7 +55,9 @@ class UsersList extends React.Component {
                     <button type="button" className="btn btn-primary" disabled>Search</button>
                 </div>
                 <div className='row justify-content-center'>
-                    {(!filteredUsers.length) ? <UserNotFound /> :
+                    {(!filteredUsers.length) ? <div className="col-3">
+                        <SearchFail str="User not found" />
+                    </div> :
                         <UserListItem key={users.id} users={filteredUsers} />}
                 </div>
             </>
