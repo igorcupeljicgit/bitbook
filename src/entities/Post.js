@@ -1,7 +1,6 @@
 import React from 'react'
 import fetchData from '../services/fetchData';
 import { Link } from 'react-router-dom'
-import deletePost from '../services/deletePost';
 
 class Post extends React.Component {
   constructor(props) {
@@ -40,9 +39,7 @@ class Post extends React.Component {
 
   deletePostMethod(postId, e) {
     e.preventDefault()
-
-    deletePost(postId)
-    this.props.handleDelete()
+    this.props.handleDelete(postId)
   }
 
 
@@ -64,7 +61,7 @@ class Post extends React.Component {
     return (
       <>
 
-        <Link to={`/posts/${id}`} style={{ textDecoration: 'none', color: 'black'}}>
+        <Link to={`/posts/${id}`} style={{ textDecoration: 'none', color: 'black' }}>
           <div className='shadow customCard-front'>
             {contentFrame}
             <div className="d-flex justify-content-between p-2">
