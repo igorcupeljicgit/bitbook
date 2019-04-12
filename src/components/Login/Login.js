@@ -1,5 +1,6 @@
 import React from "react";
 import "./Login.css";
+import fetchLogin from "../../services/fetchLogin";
 
 class Login extends React.Component {
   constructor(props) {
@@ -8,9 +9,17 @@ class Login extends React.Component {
       isActive: "nav-link",
       isActive2: "nav-link  active",
       isActive3: "isShowing",
-      isActive4: " isNotShowing"
+      isActive4: " isNotShowing",
+      email: "",
+      password: "",
+      username: ""
     };
   }
+  onInputChange = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  };
   switchClass = () => {
     this.setState({
       isActive: "nav-link ",
@@ -27,6 +36,13 @@ class Login extends React.Component {
       isActive4: " isShowing"
     });
   };
+  loginRequest = () => {
+    const data = {
+      email: this.state.email,
+      password: this.state.password
+    };
+    fetchLogin(data);
+  };
 
   render() {
     return (
@@ -34,13 +50,11 @@ class Login extends React.Component {
         <div className="col-6 text-white">
           <h2>Bitbook</h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+            Bitbook is new super cool social network.We had vision to connect
+            people and make them believe in better future.It's free to use but
+            we need some money to survive,so if you have some extra cash please
+            give it to us.More options coming very soon so be ready to flip out
+            .We won't let you down.Or we will,let's gamble.
           </p>
         </div>
         <div className="col-6 ">
@@ -72,57 +86,131 @@ class Login extends React.Component {
             <div className="card-body">
               <div className={this.state.isActive3}>
                 <div className="row">
-                  <div className="col-6">
-                    <label>Email:</label>
-                  </div>
-                  <div className="col-6">
-                    <input type="text" placeholder="enter email" />
+                  <div className="col-12">
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span
+                          class="input-group-text"
+                          id="inputGroup-sizing-default"
+                        >
+                          Email:
+                        </span>
+                      </div>
+                      <input
+                        value={this.state.email}
+                        onChange={this.onInputChange}
+                        name="email"
+                        type="text"
+                        class="form-control text-dark"
+                        aria-label="Default"
+                        aria-describedby="inputGroup-sizing-default"
+                      />
+                    </div>
                   </div>
                 </div>
                 <div className="row">
-                  <div className="col-6">
-                    <label>Password:</label>
-                  </div>
-                  <div className="col-6">
-                    <input type="text" placeholder="enter password" />
+                  <div className="col-12">
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span
+                          class="input-group-text"
+                          id="inputGroup-sizing-default"
+                        >
+                          Password:
+                        </span>
+                      </div>
+                      <input
+                        value={this.state.password}
+                        onChange={this.onInputChange}
+                        name="password"
+                        type="text"
+                        class="form-control text-dark"
+                        aria-label="Default"
+                        aria-describedby="inputGroup-sizing-default"
+                      />
+                    </div>
                   </div>
                 </div>
                 <div className="row">
-                  <a href="#" className="btn btn-primary">
+                  <a
+                    onClick={this.loginRequest}
+                    href="#"
+                    className="btn btn-primary ml-3"
+                  >
                     Login
                   </a>
                 </div>
               </div>
               <div className={this.state.isActive4}>
                 <div className="row">
-                  <div className="col-6">
-                    {" "}
-                    <label>Username:</label>
-                  </div>
-                  <div className="col-6">
-                    <input type="text" placeholder="enter Username" />
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="col-6">
-                    {" "}
-                    <label>Email</label>
-                  </div>
-                  <div className="col-6">
-                    <input type="text" placeholder="enter email" />
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="col-6">
-                    {" "}
-                    <label>Password:</label>
-                  </div>
-                  <div className="col-6">
-                    <input type="text" placeholder="enter password" />
+                  <div className="col-12">
+                    <div class="input-group mb-3 text-dark">
+                      <div class="input-group-prepend">
+                        <span
+                          class="input-group-text"
+                          id="inputGroup-sizing-default"
+                        >
+                          Enter name:
+                        </span>
+                      </div>
+                      <input
+                        value={this.state.username}
+                        onChange={this.onInputChange}
+                        name="username"
+                        type="text"
+                        class="form-control text-dark"
+                        aria-label="Default"
+                        aria-describedby="inputGroup-sizing-default"
+                      />
+                    </div>
                   </div>
                 </div>
                 <div className="row">
-                  <a href="#" className="btn btn-primary">
+                  <div className="col-12">
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span
+                          class="input-group-text"
+                          id="inputGroup-sizing-default"
+                        >
+                          Enter Email:
+                        </span>
+                      </div>
+                      <input
+                        value={this.state.email}
+                        onChange={this.onInputChange}
+                        name="email"
+                        type="text"
+                        class="form-control"
+                        aria-label="Default"
+                        aria-describedby="inputGroup-sizing-default"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col-12">
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span
+                          class="input-group-text"
+                          id="inputGroup-sizing-default"
+                        >
+                          Enter Password:
+                        </span>
+                      </div>
+                      <input
+                        type="text"
+                        class="form-control"
+                        aria-label="Default"
+                        aria-describedby="inputGroup-sizing-default"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="row">
+                  <a href="#" className="btn btn-primary ml-3">
                     Register
                   </a>
                 </div>
