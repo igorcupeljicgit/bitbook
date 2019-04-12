@@ -6,8 +6,9 @@ import MainButton from "../FloatingButton/MainButton";
 
 class PostList extends React.Component {
   constructor(props) {
-    super(props);
-    this.state = {};
+    super(props)
+
+    this.state = {}
   }
 
   render() {
@@ -27,9 +28,10 @@ class PostList extends React.Component {
                   ? post.imageUrl
                   : post.videoUrl
             }
+            {...this.props}
           />
         ))}
-        <MainButton afterCreation={this.fetchPosts} />
+        <MainButton afterCreation={this.props.fetchPosts} />
       </div>
     );
   }

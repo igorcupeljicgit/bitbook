@@ -9,7 +9,7 @@ body {
 nav, footer, .chip-icon {
   background: #44414f !important;
 }
-.customCard {
+.customCard, .customCard-front {
   background: #e3d8d8 !important;
 }
 .badge-secondary {
@@ -54,6 +54,10 @@ a:hover {
 
 .customCard {
   padding: 2%;
+  margin-top: 3%;
+  border-radius: 5px;
+}
+.customCard-front {
   margin-top: 3%;
   border-radius: 5px;
 }
