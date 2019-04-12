@@ -4,36 +4,32 @@ import "../FloatingButton/floatingButtonCss.css";
 import "../modal/Modal.css";
 import MainButton from "../FloatingButton/MainButton";
 
-class PostList extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+const PostList = (props) => {
 
-  render() {
-    const { posts } = this.props;
+  const { posts } = props
 
-    return (
-      <div className="col-8">
-        {posts.map(post => (
-          <Post
-            key={post.id}
-            id={post.id}
-            userId={post.userId}
-            type={post.type}
-            content={
-              post.type === "text"
-                ? post.text
-                : post.type === "image"
-                  ? post.imageUrl
-                  : post.videoUrl
-            }
-            {...this.props}
-          />
-        ))}
-        <MainButton afterCreation={this.props.fetchPosts} />
-      </div>
-    );
-  }
+  return (
+    <div className="col-8">
+      {posts.map(post => (
+        <Post
+          key={post.id}
+          id={post.id}
+          userId={post.userId}
+          type={post.type}
+          content={
+            post.type === "text"
+              ? post.text
+              : post.type === "image"
+                ? post.imageUrl
+                : post.videoUrl
+          }
+          handleDelete={props.handleDelete}
+          fetchPosts={props.fetchPosts}
+        />
+      ))}
+      <MainButton afterCreation={props.fetchPosts} />
+    </div>
+  );
 }
 
 export default PostList;

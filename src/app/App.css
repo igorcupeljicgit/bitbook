@@ -71,11 +71,11 @@ a:hover {
 .imagePeople, .profileButtonSubmit{
   width: 100%;
 }
+
+/* input.form-control */
 input {
   background-color: transparent !important;
 }
-
-/* input.form-control */
 .form-control[value] {
   color: #fff !important;
   opacity: 1 !important;

@@ -60,15 +60,14 @@ class Post extends React.Component {
 
     return (
       <>
-
         <Link to={`/posts/${id}`} style={{ textDecoration: 'none', color: 'black' }}>
           <div className='shadow customCard-front'>
             {contentFrame}
             <div className="d-flex justify-content-between p-2">
-              <span className={`badge badge-pill badge-${type === 'text' ? 'primary' : type === 'image' ? 'warning' : 'danger'}`}>{type}</span>
+              <span className={`badge badge-pill badge-${type === 'text' ? 'primary' : type === 'image' ? 'warning' : 'danger'}`} style={{ paddingTop: '5px' }} >{type}</span>
               <span>
                 <span className="badge badge-pill badge-secondary"> {comments.length} comments</span>
-                {userId == '2' ?
+                {userId === 2 ?
                   <span className="trashcan" onClick={(e) => this.deletePostMethod(id, e)}><i className="far fa-trash-alt ml-3"></i></span>
                   : <></>}
               </span>

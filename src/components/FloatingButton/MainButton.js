@@ -60,7 +60,7 @@ class MainButton extends React.Component {
           onUpdateSuccess={this.onUpdateSuccess}
         />
 
-        <div id="container-floating">
+        <div id="container-floating" style={{ zIndex: '9999' }}>
           <div
             className="nd4 nds bg-warning "
             onClick={() => this.openModal("image")}

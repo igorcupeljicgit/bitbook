@@ -4,11 +4,9 @@ import bitbooklogo from './../images/bitbooklogo.png'
 
 const Header = () => {
 
-
-
     return (
         <header>
-            <nav className="navbar navbar-expand-lg navbar navbar-dark row justify-content-between shadow">
+            <nav className="navbar navbar-expand navbar navbar-dark row justify-content-between shadow">
                 <div className="container">
                     <NavLink to='/' className="navbar-brand">
                         <img src={bitbooklogo} height="26px" alt="" />
@@ -16,13 +14,13 @@ const Header = () => {
                     </NavLink>
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                            <NavLink to="/" className="nav-link" activeClassName="selected">Feed</NavLink>
+                            <NavLink to="/" className="nav-link" activeClassName="active">Feed</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink to="/users" className="nav-link" activeClassName="selected">People</NavLink>
+                            <NavLink to="/users" className="nav-link" activeClassName="active">People</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink to="/profile" className="nav-link" activeClassName="selected">Profile</NavLink>
+                            <NavLink to="/profile" className="nav-link" activeClassName="active">Profile</NavLink>
                         </li>
                     </ul>
                 </div>

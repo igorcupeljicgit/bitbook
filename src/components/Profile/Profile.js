@@ -17,9 +17,7 @@ class Profile extends React.Component {
 
   fetchUser() {
     const userId = this.props.match.params.id || 2;
-    console.log(userId);
     fetchSingleUser(userId).then(user => {
-      console.log(user);
       this.setState({
         user
       });
@@ -84,8 +82,8 @@ class Profile extends React.Component {
                     Update profile
                   </button>
                 ) : (
-                  ""
-                )}
+                    ""
+                  )}
 
                 <p className="card-text">
                   <b>About:</b> {user.about}
