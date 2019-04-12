@@ -41,8 +41,6 @@ class Feed extends React.Component {
 
     const filteredPosts = posts.filter(post => post.type === filter);
 
-    console.log(posts);
-
     return (
       <div className="row">
         <div className="col-2" />

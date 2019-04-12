@@ -36,7 +36,6 @@ class PostPage extends React.Component {
 
     render() {
         const { post } = this.state
-        console.log(post);
 
         if (!post) {
             return <div className="d-flex justify-content-center mt-5">

@@ -1,14 +1,12 @@
 import React from "react";
-import Post from "../../entities/Post";
+import Post from "./Post";
 import "../FloatingButton/floatingButtonCss.css";
 import "../modal/Modal.css";
 import MainButton from "../FloatingButton/MainButton";
 
 class PostList extends React.Component {
   constructor(props) {
-    super(props)
-
-    this.state = {}
+    super(props);
   }
 
   render() {
@@ -20,6 +18,7 @@ class PostList extends React.Component {
           <Post
             key={post.id}
             id={post.id}
+            userId={post.userId}
             type={post.type}
             content={
               post.type === "text"
