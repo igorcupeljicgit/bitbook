@@ -73,7 +73,7 @@ class Comments extends React.Component {
                     </form>
                 </div>
                 {
-                    comments.length != 0 ? comments.map((obj) => {
+                    comments.length !== 0 ? comments.map((obj) => {
                         return <CommItem key={obj.id} id={obj.id} comment={obj} user={obj.userId} handleDelete={this.removeComment} />
                     }) :
                         <div className='row justify-content-center'>

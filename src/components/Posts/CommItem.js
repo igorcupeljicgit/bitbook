@@ -37,7 +37,7 @@ class CommItem extends React.Component {
                         <p className="card-text"><small className="text-muted">{new Date(comment.createdAt).toDateString()}</small></p>
                     </div>
 
-                    {this.props.user == '2' ?
+                    {this.props.user === 2 ?
                         <span className="trashcan float-right" onClick={() => this.deleteCommentMethod(id)}><i className="far fa-trash-alt ml-3"></i></span>
                         : <></>}
 
