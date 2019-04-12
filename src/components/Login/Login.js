@@ -1,6 +1,7 @@
 import React from "react";
 import "./Login.css";
 import fetchLogin from "../../services/fetchLogin";
+import fetchRegister from "../../services/fetchRegister";
 
 class Login extends React.Component {
   constructor(props) {
@@ -12,7 +13,7 @@ class Login extends React.Component {
       isActive4: " isNotShowing",
       email: "",
       password: "",
-      username: ""
+      name: ""
     };
   }
   onInputChange = e => {
@@ -41,7 +42,18 @@ class Login extends React.Component {
       email: this.state.email,
       password: this.state.password
     };
-    fetchLogin(data);
+    fetchLogin(data)
+    .then(res=> console.log(res));
+    
+  };
+  registerRequest = () => {
+    const data = {
+      name: this.state.name,
+      email: this.state.email,
+      password: this.state.password
+    };
+    fetchRegister(data)
+    .then(res=> console.log(res));;
   };
 
   render() {
@@ -57,7 +69,7 @@ class Login extends React.Component {
             .We won't let you down.Or we will,let's gamble.
           </p>
         </div>
-        <div className="col-6 ">
+        <div className="col-6 text-dark ">
           <div className="card text-center">
             <div className="card-header">
               <ul className="nav nav-tabs card-header-tabs">
@@ -87,8 +99,8 @@ class Login extends React.Component {
               <div className={this.state.isActive3}>
                 <div className="row">
                   <div className="col-12">
-                    <div class="input-group mb-3">
-                      <div class="input-group-prepend">
+                    <div className="input-group mb-3">
+                      <div className="input-group-prepend">
                         <span
                           class="input-group-text"
                           id="inputGroup-sizing-default"
@@ -97,11 +109,11 @@ class Login extends React.Component {
                         </span>
                       </div>
                       <input
-                        value={this.state.email}
+                      
                         onChange={this.onInputChange}
                         name="email"
                         type="text"
-                        class="form-control text-dark"
+                        className="form-control text-dark"
                         aria-label="Default"
                         aria-describedby="inputGroup-sizing-default"
                       />
@@ -110,21 +122,21 @@ class Login extends React.Component {
                 </div>
                 <div className="row">
                   <div className="col-12">
-                    <div class="input-group mb-3">
-                      <div class="input-group-prepend">
+                    <div className="input-group mb-3">
+                      <div className="input-group-prepend">
                         <span
-                          class="input-group-text"
+                          className="input-group-text"
                           id="inputGroup-sizing-default"
                         >
                           Password:
                         </span>
                       </div>
                       <input
-                        value={this.state.password}
+                        
                         onChange={this.onInputChange}
                         name="password"
                         type="text"
-                        class="form-control text-dark"
+                        className="form-control text-dark"
                         aria-label="Default"
                         aria-describedby="inputGroup-sizing-default"
                       />
@@ -144,8 +156,8 @@ class Login extends React.Component {
               <div className={this.state.isActive4}>
                 <div className="row">
                   <div className="col-12">
-                    <div class="input-group mb-3 text-dark">
-                      <div class="input-group-prepend">
+                    <div className="input-group mb-3 text-dark">
+                      <div className="input-group-prepend  text-dark ">
                         <span
                           class="input-group-text"
                           id="inputGroup-sizing-default"
@@ -154,11 +166,11 @@ class Login extends React.Component {
                         </span>
                       </div>
                       <input
-                        value={this.state.username}
+                       
                         onChange={this.onInputChange}
-                        name="username"
+                        name="name"
                         type="text"
-                        class="form-control text-dark"
+                        className="form-control text-dark"
                         aria-label="Default"
                         aria-describedby="inputGroup-sizing-default"
                       />
@@ -167,21 +179,21 @@ class Login extends React.Component {
                 </div>
                 <div className="row">
                   <div className="col-12">
-                    <div class="input-group mb-3">
-                      <div class="input-group-prepend">
+                    <div className="input-group mb-3">
+                      <div className="input-group-prepend">
                         <span
-                          class="input-group-text"
+                          className="input-group-text"
                           id="inputGroup-sizing-default"
                         >
                           Enter Email:
                         </span>
                       </div>
                       <input
-                        value={this.state.email}
+                       
                         onChange={this.onInputChange}
                         name="email"
                         type="text"
-                        class="form-control"
+                        className="form-control"
                         aria-label="Default"
                         aria-describedby="inputGroup-sizing-default"
                       />
@@ -190,10 +202,10 @@ class Login extends React.Component {
                 </div>
                 <div className="row">
                   <div className="col-12">
-                    <div class="input-group mb-3">
-                      <div class="input-group-prepend">
+                    <div className="input-group mb-3">
+                      <div className="input-group-prepend">
                         <span
-                          class="input-group-text"
+                          className="input-group-text"
                           id="inputGroup-sizing-default"
                         >
                           Enter Password:
@@ -201,7 +213,9 @@ class Login extends React.Component {
                       </div>
                       <input
                         type="text"
-                        class="form-control"
+                        className="form-control text-dark"
+                        onChange={this.onInputChange}
+                        name="password"
                         aria-label="Default"
                         aria-describedby="inputGroup-sizing-default"
                       />
@@ -210,7 +224,7 @@ class Login extends React.Component {
                 </div>
 
                 <div className="row">
-                  <a href="#" className="btn btn-primary ml-3">
+                  <a onClick={this.registerRequest} href="#" className="btn btn-primary ml-3">
                     Register
                   </a>
                 </div>

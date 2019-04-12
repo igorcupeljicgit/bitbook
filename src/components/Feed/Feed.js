@@ -36,7 +36,7 @@ class Feed extends React.Component {
       <div className="row">
         <div className="col-2" />
 
-        <PostList posts={filteredPosts.length != 0 ? filteredPosts : posts} />
+        <PostList posts={filteredPosts.length !== 0 ? filteredPosts : posts} />
 
         <div className="col-2">
           <div className="dropdown mt-4 sticky-top">
