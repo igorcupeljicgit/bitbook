@@ -22,7 +22,8 @@ class TextModal extends React.Component {
   changeData = () => {
     const data = {
       type: "text",
-      text: this.state.textpost
+      text: this.state.textpost,
+      userId: 2
     };
 
     createPost(data).then(() => {

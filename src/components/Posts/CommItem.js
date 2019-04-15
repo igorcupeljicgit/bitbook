@@ -16,10 +16,12 @@ class CommItem extends React.Component {
       
     }
 
-
+    deleteCommentMethod(id) {
+        this.props.handleDelete(id)
+    }
 
     render() {
-        const { comment } = this.props
+        const { id, comment } = this.props
         const { user } = this.state
 
         const firstName = user.name ? user.name.first : ''
@@ -35,6 +37,11 @@ class CommItem extends React.Component {
                         <p className="card-text">{comment.body}</p>
                         <p className="card-text"><small className="text-muted">{new Date(comment.createdAt).toDateString()}</small></p>
                     </div>
+
+                    {this.props.user === 2 ?
+                        <span className="trashcan float-right" onClick={() => this.deleteCommentMethod(id)}><i className="far fa-trash-alt ml-3"></i></span>
+                        : <></>}
+
                 </div>
             </div>
         </div>

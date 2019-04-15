@@ -1,8 +1,10 @@
 import React from 'react'
 import {fetchData} from '../../services/postService';
 import CommItem from './CommItem';
-import noComments from './../../images/noComments.jpg'
+
 import {postComm} from '../../services/commentsService';
+import deleteComment from '../../services/deleteComment';
+import SearchFail from '../../shared/SearchFail';
 
 
 class Comments extends React.Component {
@@ -46,6 +48,13 @@ class Comments extends React.Component {
         })
     }
 
+    removeComment = (id) => {
+        deleteComment(id)
+            .then(() => {
+                this.fetchComments()
+            })
+    }
+
 
     render() {
         const { comments } = this.state;
@@ -66,9 +75,12 @@ class Comments extends React.Component {
                 </div>
                 {
                     comments.length !== 0 ? comments.map((obj) => {
-                        return <CommItem key={obj.id} comment={obj} user={obj.userId} />
-                    }) : <div className="mb-3">
-                            <img src={noComments} className="col-12" alt="no comments" />
+                        return <CommItem key={obj.id} id={obj.id} comment={obj} user={obj.userId} handleDelete={this.removeComment} />
+                    }) :
+                        <div className='row justify-content-center'>
+                            <div className='col-5'>
+                                <SearchFail str="No comments for this post yet..." />
+                            </div>
                         </div>
                 }
             </div>

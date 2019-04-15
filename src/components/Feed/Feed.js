@@ -3,6 +3,7 @@ import React from "react";
 import { fetchPosts} from "../../services/postService";
 import PostList from "./../Posts/PostList";
 import { MainButton } from "../FloatingButton/MainButton";
+import {deletePost} from "../../services/postService"
 
 class Feed extends React.Component {
   constructor(props) {
@@ -22,6 +23,14 @@ class Feed extends React.Component {
     return fetchPosts().then(posts =>
       this.setState({ posts: posts.reverse() })
     );
+    
+  }
+
+  removePost = (postId) => {
+    deletePost(postId)
+      .then(() => {
+        this.fetchPosts()
+      })
   }
 
   setFilter = str => {
