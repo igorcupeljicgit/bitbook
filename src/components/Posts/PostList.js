@@ -2,7 +2,6 @@ import React from "react";
 import Post from "./Post";
 import "../FloatingButton/floatingButtonCss.css";
 import "../modal/Modal.css";
-import MainButton from "../FloatingButton/MainButton";
 
 const PostList = (props) => {
 
@@ -21,11 +20,10 @@ const PostList = (props) => {
                 ? post.imageUrl
                 : post.videoUrl
           }
-          handleDelete={props.handleDelete}
-          fetchPosts={props.fetchPosts}
+          handleDelete={this.props.handleDelete}
+          fetchPosts={this.props.fetchPosts}
         />
       ))}
-      <MainButton afterCreation={props.fetchPosts} />
     </div>
   );
 }

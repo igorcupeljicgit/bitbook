@@ -1,5 +1,5 @@
 import React from 'react'
-import fetchData from '../../services/fetchData';
+import {fetchData} from '../../services/postService';
 
 class CommItem extends React.Component {
     constructor(props) {
@@ -12,7 +12,8 @@ class CommItem extends React.Component {
 
     componentDidMount() {
         fetchData(`/users/${this.props.user}`)
-            .then(user => this.setState({ user }))
+        .then(user => this.setState({ user }))
+      
     }
 
     deleteCommentMethod(id) {

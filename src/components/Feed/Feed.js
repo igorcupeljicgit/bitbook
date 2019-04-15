@@ -1,8 +1,7 @@
 import React from "react";
 
-import fetchData from "../../services/fetchData";
 import PostList from "./../Posts/PostList";
-import deletePost from "./../../services/deletePost"
+import {deletePost, fetchData} from "../../services/postService";
 import Pagination from "./Pagination";
 
 class Feed extends React.Component {

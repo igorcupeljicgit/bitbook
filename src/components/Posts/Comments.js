@@ -1,8 +1,9 @@
 import React from 'react'
-import fetchData from '../../services/fetchData';
+import {fetchData} from '../../services/postService';
 import CommItem from './CommItem';
-import postComm from '../../services/postComm';
-import deleteComment from '../../services/deleteComment';
+
+import {postComm} from '../../services/commentsService';
+import {deleteComment} from '../../services/commentsService';
 import SearchFail from '../../shared/SearchFail';
 
 
