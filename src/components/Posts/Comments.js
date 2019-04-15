@@ -3,7 +3,7 @@ import {fetchData} from '../../services/postService';
 import CommItem from './CommItem';
 
 import {postComm} from '../../services/commentsService';
-import deleteComment from '../../services/deleteComment';
+import {deleteComment} from '../../services/commentsService';
 import SearchFail from '../../shared/SearchFail';
 
 

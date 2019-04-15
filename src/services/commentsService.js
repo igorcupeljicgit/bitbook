@@ -24,3 +24,22 @@ export const postComm=(postId, data)=> {
     return myFetch
 };
 
+
+export const deleteComment=(id)=> {
+
+    const myFetch = fetch(`${BASE_API_URL}/comments/${id}`, {
+        method: 'DELETE',
+        headers: new Headers({
+            'x-api-key': 'B1tD3V',
+            'Content-Type': 'application/json'
+
+        }),
+        commentId: JSON.stringify(id)
+    })
+        .then(res => res)
+
+    return myFetch
+}
+
+
+
