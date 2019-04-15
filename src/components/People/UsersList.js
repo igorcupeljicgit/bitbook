@@ -2,7 +2,6 @@ import React from "react"
 import fetchUsers from '../../services/fetchUsers'
 import UserListItem from './UsersListItem'
 import User from '../../entities/User'
-import { Link } from 'react-router-dom'
 import UserNotFound from "./UserNotFound"
 
 class UsersList extends React.Component {
@@ -17,6 +16,7 @@ class UsersList extends React.Component {
     componentDidMount = () => {
         fetchUsers()
             .then((element) => {
+                console.log(element)
                 return element.map((element) => {
                     return new User(element.id, element.avatarUrl, element.name.first, element.name.last, element.about.bio, element.about.job, element.about.countryCode, element.comments, element.posts, element.createdAt)
                 })

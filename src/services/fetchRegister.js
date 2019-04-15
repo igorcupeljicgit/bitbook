@@ -8,9 +8,12 @@ function fetchRegister(data) {
       "Content-Type": "application/json"
     },
 
-    body: JSON.stringify(data)
+    body:JSON.stringify(data)
   }).then(res => res.json()
-  ).then(res=>res);
+  ).then(res=> {
+    console.log(res)
+    return res
+  });
 }
 
 export default fetchRegister;

@@ -2,7 +2,7 @@ import { BASE_API_URL } from '../shared/constants'
 
 function fetchUsers() {
     const myFetch = fetch(BASE_API_URL + "/users/?_embed[]=comments&_embed[]=posts", {
-        method: 'get',
+        method: 'GET',
         headers: new Headers({
             'x-api-key': 'B1tD3V',
             'Content-Type': 'application/json'

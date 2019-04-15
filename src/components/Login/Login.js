@@ -44,6 +44,7 @@ class Login extends React.Component {
     };
     fetchLogin(data)
     .then(res=> console.log(res));
+    console.log(localStorage.getItem("token"))
     
   };
   registerRequest = () => {
@@ -53,8 +54,11 @@ class Login extends React.Component {
       password: this.state.password
     };
     fetchRegister(data)
-    .then(res=> console.log(res));;
+    .then((res)=>{
+    localStorage.setItem("token",res.accessToken)});
+    console.log(localStorage.getItem("token"))
   };
+
 
   render() {
     return (
@@ -102,7 +106,7 @@ class Login extends React.Component {
                     <div className="input-group mb-3">
                       <div className="input-group-prepend">
                         <span
-                          class="input-group-text"
+                          className="input-group-text"
                           id="inputGroup-sizing-default"
                         >
                           Email:
@@ -159,7 +163,7 @@ class Login extends React.Component {
                     <div className="input-group mb-3 text-dark">
                       <div className="input-group-prepend  text-dark ">
                         <span
-                          class="input-group-text"
+                          className="input-group-text"
                           id="inputGroup-sizing-default"
                         >
                           Enter name:

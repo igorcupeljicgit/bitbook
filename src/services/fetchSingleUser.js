@@ -5,7 +5,7 @@ import { BASE_API_URL } from "../shared/constants"
 const fetchSingleUser = (userId) => {
     const fetchSingle = fetch(`${BASE_API_URL}/users/${userId}/?_embed[]=comments&_embed[]=posts`, {
 
-        method: 'get',
+        method: 'GET',
         headers: new Headers({
             'x-api-key': 'B1tD3V',
             'Content-Type': 'application/json'
@@ -14,7 +14,7 @@ const fetchSingleUser = (userId) => {
         .then(res => res.json())
         .then((element) => {
             console.log(element)
-            return new User(element.id, element.avatarUrl, element.name.first, element.name.last, element.about.bio, element.about.countryCode, element.about.job, element.comments, element.posts)
+            return new User(element.id, element.avatarUrl, element.name.first, element.name.last,element.about.bio, element.about.countryCode, element.about.job, element.comments, element.posts)
 
         })
 
