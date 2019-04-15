@@ -1,12 +1,16 @@
 import React from "react";
-import profileUpdate from "../../services/ProfileUpdate";
+import {profileUpdate} from "../../services/userService";
 
+import {Auth} from "../../services/AuthService"
 import "./Modal.css";
+
+
+
 class Modal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: 2,
+      id: Auth.getUserId(),
       avatarInput: "",
       nameInput: "",
       surnameInput: "",
@@ -15,6 +19,8 @@ class Modal extends React.Component {
       aboutCompany: ""
     };
   }
+ 
+
 
   onInputChange = e => {
     this.setState({

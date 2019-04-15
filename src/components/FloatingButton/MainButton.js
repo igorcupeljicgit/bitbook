@@ -29,10 +29,7 @@ class MainButton extends React.Component {
   };
 
   onUpdateSuccess = () => {
-    this.setState({
-      isOpen: false
-    });
-
+    this.closeModal();
     this.props.afterCreation();
   };
 
@@ -111,4 +108,4 @@ class MainButton extends React.Component {
   }
 }
 
-export default MainButton;
+export { MainButton };

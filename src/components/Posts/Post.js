@@ -1,6 +1,8 @@
 import React from 'react'
-import fetchData from '../../services/fetchData';
+import {fetchData} from '../../services/postService';
 import { Link } from 'react-router-dom'
+// import deletePost from '../services/postService';
+import { Auth } from '../../services/AuthService';
 
 class Post extends React.Component {
   constructor(props) {
@@ -44,7 +46,8 @@ class Post extends React.Component {
 
 
   render() {
-    const { type, content, id, userId, sid } = this.props
+    const { type, content, id, sid } = this.props
+   
     const { comments } = this.state
 
 
@@ -67,7 +70,7 @@ class Post extends React.Component {
               <span className={`badge badge-pill badge-${type === 'text' ? 'primary' : type === 'image' ? 'warning' : 'danger'}`} style={{ paddingTop: '5px' }} >{type}</span>
               <span>
                 <span className="badge badge-pill badge-secondary"> {comments.length} comments</span>
-                {userId === 2 ?
+                {id === Auth.getUserId() ?
                   <span className="trashcan" onClick={(e) => this.deletePostMethod(id, e)}><i className="far fa-trash-alt ml-3"></i></span>
                   : <></>}
               </span>

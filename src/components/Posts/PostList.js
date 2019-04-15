@@ -2,11 +2,16 @@ import React from "react";
 import Post from "./Post";
 import "../FloatingButton/floatingButtonCss.css";
 import "../modal/Modal.css";
-import MainButton from "../FloatingButton/MainButton";
 
-const PostList = (props) => {
-
-  const { posts } = props
+class PostList extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+   
+    };
+  }
+render(){
+  const { posts } = this.props
 
   return (
     <div className="col-8">
@@ -23,13 +28,14 @@ const PostList = (props) => {
                 ? post.imageUrl
                 : post.videoUrl
           }
-          handleDelete={props.handleDelete}
-          fetchPosts={props.fetchPosts}
+          handleDelete={this.props.handleDelete}
+          fetchPosts={this.props.fetchPosts}
         />
       ))}
-      <MainButton afterCreation={props.fetchPosts} />
+    
     </div>
   );
+}
 }
 
 export default PostList;

@@ -1,8 +1,9 @@
 import React from "react";
 
-import fetchData from "../../services/fetchData";
+import { fetchPosts} from "../../services/postService";
 import PostList from "./../Posts/PostList";
-import deletePost from "./../../services/deletePost"
+import { MainButton } from "../FloatingButton/MainButton";
+import {deletePost} from "../../services/postService"
 
 class Feed extends React.Component {
   constructor(props) {
@@ -19,10 +20,10 @@ class Feed extends React.Component {
   }
 
   fetchPosts = () => {
-    fetchData("/posts")
-      .then(posts =>
-        this.setState({ posts: posts.reverse() })
-      );
+    return fetchPosts().then(posts =>
+      this.setState({ posts: posts.reverse() })
+    );
+    
   }
 
   removePost = (postId) => {
@@ -45,7 +46,9 @@ class Feed extends React.Component {
       <div className="row">
         <div className="col-2" />
 
-        <PostList posts={filteredPosts.length !== 0 ? filteredPosts : posts} handleDelete={this.removePost} fetchPosts={this.fetchPosts} />
+        <PostList posts={filteredPosts.length !== 0 ? filteredPosts : posts} />
+
+        <MainButton afterCreation={this.fetchPosts} />
 
         <div className="col-2">
           <div className="dropdown mt-4 sticky-top">

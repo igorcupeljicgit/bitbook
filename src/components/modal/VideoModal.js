@@ -1,12 +1,14 @@
 import React from "react";
 import "./ModalPosts.css";
-import createPost from "../../services/UpdatePost";
+import {createPost} from "../../services/postService";
+import {Auth} from "../../services/AuthService"
+
 
 class VideoModal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: 2,
+      id:  Auth.getUserId(),
       videoUrl: ""
     };
   }

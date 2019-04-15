@@ -1,5 +1,5 @@
 import React from 'react'
-import fetchData from '../../services/fetchData';
+import {fetchData} from '../../services/postService';
 import Comments from './Comments';
 
 class PostPage extends React.Component {
