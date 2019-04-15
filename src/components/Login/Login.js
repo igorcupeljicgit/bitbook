@@ -1,8 +1,9 @@
 import React from "react";
 import "./Login.css";
-import fetchLogin from "../../services/fetchLogin";
-import fetchRegister from "../../services/fetchRegister";
-import jwt_decode from "jwt-decode"
+import {fetchLogin} from "../../services/userService";
+import {fetchRegister} from "../../services/userService";
+import { Auth } from '../../services/AuthService';
+
 class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -16,11 +17,13 @@ class Login extends React.Component {
       name: ""
     };
   }
+
   onInputChange = e => {
     this.setState({
       [e.target.name]: e.target.value
     });
   };
+
   switchClass = () => {
     this.setState({
       isActive: "nav-link ",
@@ -29,6 +32,7 @@ class Login extends React.Component {
       isActive4: " isNotShowing"
     });
   };
+
   switchClass2 = () => {
     this.setState({
       isActive: "nav-link active",
@@ -37,17 +41,18 @@ class Login extends React.Component {
       isActive4: " isShowing"
     });
   };
+
   loginRequest = () => {
     const data = {
       email: this.state.email,
       password: this.state.password
     };
+
     fetchLogin(data)
-    .then(res=> console.log(res));
-    const decode=jwt_decode(localStorage.getItem("token"))
-    console.log(decode)
-    
+      .then(token=> Auth.loginUser(token))
+      .then(() => this.props.history.push('feed'));
   };
+
   registerRequest = () => {
     const data = {
       name: this.state.name,
@@ -79,23 +84,23 @@ class Login extends React.Component {
             <div className="card-header">
               <ul className="nav nav-tabs card-header-tabs">
                 <li className="nav-item">
-                  <a
+                  <button
                     className={`nav-link ${this.state.isActive2}`}
                     onClick={this.switchClass}
-                    href="#"
+                
                   >
                     Login
-                  </a>
+                  </ button>
                 </li>
 
                 <li className="nav-item">
-                  <a
+                  <button
                     className={`nav-link ${this.state.isActive}`}
                     onClick={this.switchClass2}
-                    href="#"
+                  
                   >
                     Register
-                  </a>
+                  </button>
                 </li>
               </ul>
             </div>
@@ -149,13 +154,13 @@ class Login extends React.Component {
                   </div>
                 </div>
                 <div className="row">
-                  <a
+                  <button
                     onClick={this.loginRequest}
                     href="#"
                     className="btn btn-primary ml-3"
                   >
                     Login
-                  </a>
+                  </button>
                 </div>
               </div>
               <div className={this.state.isActive4}>
@@ -229,9 +234,9 @@ class Login extends React.Component {
                 </div>
 
                 <div className="row">
-                  <a onClick={this.registerRequest} href="#" className="btn btn-primary ml-3">
+                  <button onClick={this.registerRequest} href="#" className="btn btn-primary ml-3">
                     Register
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>

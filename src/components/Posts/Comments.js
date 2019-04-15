@@ -1,8 +1,8 @@
 import React from 'react'
-import fetchData from '../../services/fetchData';
+import {fetchData} from '../../services/postService';
 import CommItem from './CommItem';
 import noComments from './../../images/noComments.jpg'
-import postComm from '../../services/postComm';
+import {postComm} from '../../services/commentsService';
 
 
 class Comments extends React.Component {
@@ -65,7 +65,7 @@ class Comments extends React.Component {
                     </form>
                 </div>
                 {
-                    comments.length != 0 ? comments.map((obj) => {
+                    comments.length !== 0 ? comments.map((obj) => {
                         return <CommItem key={obj.id} comment={obj} user={obj.userId} />
                     }) : <div className="mb-3">
                             <img src={noComments} className="col-12" alt="no comments" />

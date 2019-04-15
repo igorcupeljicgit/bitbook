@@ -1,12 +1,14 @@
 import React from "react";
-import createPost from "../../services/UpdatePost";
+import {createPost} from "../../services/postService";
 import "./ModalPosts.css";
+import {Auth} from "../../services/AuthService"
+
 
 class TextModal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: 2,
+      id: Auth.getUserId(),
       textpost: ""
     };
   }

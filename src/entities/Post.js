@@ -1,7 +1,7 @@
 import React from 'react'
-import fetchData from '../services/fetchData';
+import {fetchData} from '../services/postService';
 import { Link } from 'react-router-dom'
-import deletePost from '../services/deletePost';
+import {deletePost} from '../services/postService';
 
 class Post extends React.Component {
   constructor(props) {
@@ -46,7 +46,7 @@ class Post extends React.Component {
 
 
   render() {
-    const { type, content, id, userId, sid } = this.props
+    const { type, content, id, sid } = this.props
     const { comments } = this.state
 
 

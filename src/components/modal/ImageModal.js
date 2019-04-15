@@ -1,13 +1,13 @@
 import React from "react";
-// import postUpdate from "../../services/postUpdate"
 import "./ModalPosts.css";
-import createPost from "../../services/UpdatePost";
+import {createPost} from "../../services/postService";
+import {Auth} from "../../services/AuthService"
 
 class ImageModal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: 2,
+      id: Auth.getUserId(),
       imageUrl: ""
     };
   }

@@ -1,5 +1,5 @@
 import React from "react"
-import fetchUsers from '../../services/fetchUsers'
+import {fetchUsers} from '../../services/userService'
 import UserListItem from './UsersListItem'
 import User from '../../entities/User'
 import UserNotFound from "./UserNotFound"

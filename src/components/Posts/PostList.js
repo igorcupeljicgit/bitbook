@@ -2,17 +2,13 @@ import React from "react";
 import Post from "../../entities/Post";
 import "../FloatingButton/floatingButtonCss.css";
 import "../modal/Modal.css";
-import MainButton from "../FloatingButton/MainButton";
-import fetchData from "../../services/fetchData";
 
 class PostList extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
-  }
-
-  fetchPosts=()=>{
-    fetchData("posts")
+    this.state = {
+   
+    };
   }
 
   render() {
@@ -34,7 +30,6 @@ class PostList extends React.Component {
             }
           />
         ))}
-        <MainButton afterCreation={this.fetchPosts} />
       </div>
     );
   }

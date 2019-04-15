@@ -1,17 +1,16 @@
 import React from "react";
-import profileUpdate from "../../services/ProfileUpdate";
-import jwt_decode from "jwt-decode"
+import {profileUpdate} from "../../services/userService";
 
+import {Auth} from "../../services/AuthService"
 import "./Modal.css";
 
-const decode=jwt_decode(localStorage.getItem("token"))
-const myId=decode.id
+
 
 class Modal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      id:myId,
+      id: Auth.getUserId(),
       avatarInput: "",
       nameInput: "",
       surnameInput: "",
