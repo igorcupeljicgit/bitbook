@@ -6,11 +6,9 @@ import MainButton from "../FloatingButton/MainButton";
 
 const PostList = (props) => {
 
-  const { posts } = props
-
   return (
-    <div className="col-8">
-      {posts.map(post => (
+    <div className="post-list">
+      {props.posts.map(post => (
         <Post
           key={post.id}
           id={post.id}

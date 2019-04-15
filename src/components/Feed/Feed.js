@@ -3,6 +3,7 @@ import React from "react";
 import fetchData from "../../services/fetchData";
 import PostList from "./../Posts/PostList";
 import deletePost from "./../../services/deletePost"
+import Pagination from "./Pagination";
 
 class Feed extends React.Component {
   constructor(props) {
@@ -10,19 +11,28 @@ class Feed extends React.Component {
 
     this.state = {
       posts: [],
+      pageNum: 0,
       filter: ""
     };
   }
 
   componentDidMount() {
-    this.fetchPosts();
+    this.fetchPosts()
   }
 
   fetchPosts = () => {
     fetchData("/posts")
-      .then(posts =>
-        this.setState({ posts: posts.reverse() })
-      );
+      .then(posts => {
+          const reversed = posts.reverse()
+          let myPosts = []
+          
+          for (let i = 0, chunk = 10; i<reversed.length; i+=chunk) {
+            let temparray = reversed.slice(i, i+chunk);
+            myPosts.push(temparray)
+          }
+            
+          this.setState({ posts: myPosts })
+      })
   }
 
   removePost = (postId) => {
@@ -32,20 +42,36 @@ class Feed extends React.Component {
       })
   }
 
-  setFilter = str => {
-    this.setState({ filter: str });
-  };
+  setPageNum = num => {this.setState({ pageNum: num })}
+  nextPage = () => {this.setState({ pageNum: this.state.pageNum + 1 })}
+  prevPage = () => {this.setState({ pageNum: this.state.pageNum - 1 })}
+
+  setFilter = str => {this.setState({ filter: str })}
+
 
   render() {
-    const { posts, filter } = this.state;
+    const { posts, pageNum, filter } = this.state;
 
-    const filteredPosts = posts.filter(post => post.type === filter);
+    
+    if(posts.length === 0) return <h1>Loading...</h1>
+    const filteredPosts = posts[pageNum].filter(post => post.type === filter);
 
     return (
       <div className="row">
         <div className="col-2" />
 
-        <PostList posts={filteredPosts.length !== 0 ? filteredPosts : posts} handleDelete={this.removePost} fetchPosts={this.fetchPosts} />
+        <div className="col-8">
+          <PostList 
+            posts={filteredPosts.length !== 0 ? filteredPosts : posts[pageNum]} 
+            handleDelete={this.removePost} 
+            fetchPosts={this.fetchPosts} />
+          <Pagination 
+          pages={posts.length}
+          currPage={pageNum}
+          handlePage={this.setPageNum}
+          next={this.nextPage}
+          prev={this.prevPage} />
+        </div>
 
         <div className="col-2">
           <div className="dropdown mt-4 sticky-top">

@@ -17,7 +17,7 @@ class UsersList extends React.Component {
         fetchUsers()
             .then((element) => {
                 return element.map((element) => {
-                    return new User(element.id, element.avatarUrl, element.name.first, element.name.last, element.about.bio, element.about.job, element.about.countryCode, element.comments, element.posts, element.createdAt)
+                    return new User(element.id, element.avatarUrl, element.name.first, element.name.last, element.about, element.comments, element.posts, element.createdAt)
                 })
 
             })
@@ -39,9 +39,8 @@ class UsersList extends React.Component {
     render() {
         const { users, searchInput } = this.state
 
-        const filteredUsers = users.filter((user) => (user.name.toLowerCase().indexOf(searchInput.toLowerCase()) !== -1));
-
-
+        const filteredUsers = users.filter((user) => {if(user.name) return user.name.toLowerCase().indexOf(searchInput.toLowerCase()) !== -1});
+        
         return (
             <>
                 <div className="mt-4 text-center">
