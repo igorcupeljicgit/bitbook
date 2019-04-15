@@ -1,12 +1,17 @@
 import React from "react";
 import profileUpdate from "../../services/ProfileUpdate";
+import jwt_decode from "jwt-decode"
 
 import "./Modal.css";
+
+const decode=jwt_decode(localStorage.getItem("token"))
+const myId=decode.id
+
 class Modal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: 2,
+      id:myId,
       avatarInput: "",
       nameInput: "",
       surnameInput: "",
@@ -15,6 +20,8 @@ class Modal extends React.Component {
       aboutCompany: ""
     };
   }
+ 
+
 
   onInputChange = e => {
     this.setState({

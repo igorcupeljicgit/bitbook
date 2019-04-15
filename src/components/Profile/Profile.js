@@ -1,6 +1,9 @@
 import React from "react";
 import fetchSingleUser from "../../services/fetchSingleUser";
 import Modal from "../../components/modal/Modal";
+import jwt_decode from  "jwt-decode"
+const decode=jwt_decode(localStorage.getItem("token"))
+const myId=decode.id
 
 class Profile extends React.Component {
   constructor(props) {
@@ -16,7 +19,10 @@ class Profile extends React.Component {
   }
 
   fetchUser() {
-    const userId = this.props.match.params.id || 2;
+    const decode=jwt_decode(localStorage.getItem("token"))
+    const myId=decode.id
+    console.log(myId)
+    const userId = this.props.match.params.id || decode.id;
     console.log(userId);
     fetchSingleUser(userId).then(user => {
       console.log(user);
@@ -76,7 +82,7 @@ class Profile extends React.Component {
                 <h5 className="card-title">
                   {user.name} {user.surname}
                 </h5>
-                {user.id === 2 ? (
+                {user.id === myId ? (
                   <button
                     className="btn text-white bg-secondary mb-3"
                     onClick={this.openModalHandler}

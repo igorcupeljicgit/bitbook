@@ -12,9 +12,9 @@ const fetchSingleUser = (userId) => {
         })
     })
         .then(res => res.json())
-        .then((element) => {
-            console.log(element)
-            return new User(element.id, element.avatarUrl, element.name.first, element.name.last,element.about.bio, element.about.countryCode, element.about.job, element.comments, element.posts)
+        .then(({id, avatarUrl="[https://www.petmd.com/sites/default/files/Acute-Dog-Diarrhea-47066074.jpg]",name="['']",about="[]",comments="[]",posts="[]",createdAt="['']"}) => {
+          
+            return new User(id,avatarUrl,name.first,name.last,about.bio, about.countryCode,about.job,comments,posts,createdAt)
 
         })
 

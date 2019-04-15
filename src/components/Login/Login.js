@@ -2,7 +2,7 @@ import React from "react";
 import "./Login.css";
 import fetchLogin from "../../services/fetchLogin";
 import fetchRegister from "../../services/fetchRegister";
-
+import jwt_decode from "jwt-decode"
 class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -44,7 +44,8 @@ class Login extends React.Component {
     };
     fetchLogin(data)
     .then(res=> console.log(res));
-    console.log(localStorage.getItem("token"))
+    const decode=jwt_decode(localStorage.getItem("token"))
+    console.log(decode)
     
   };
   registerRequest = () => {

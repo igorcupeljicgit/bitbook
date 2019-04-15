@@ -17,8 +17,8 @@ class UsersList extends React.Component {
         fetchUsers()
             .then((element) => {
                 console.log(element)
-                return element.map((element) => {
-                    return new User(element.id, element.avatarUrl, element.name.first, element.name.last, element.about.bio, element.about.job, element.about.countryCode, element.comments, element.posts, element.createdAt)
+                return element.map(({id,avatarUrl="[https://www.petmd.com/sites/default/files/Acute-Dog-Diarrhea-47066074.jpg]",name="['']",about="[da]",comments="['']",posts="['']",createdAt="['']"}) => {
+                    return new User(id,avatarUrl,name.first,name.last,about.bio,about.job,about.countryCode,comments,posts,createdAt)
                 })
 
             })
