@@ -1,7 +1,6 @@
 import React from "react";
 import { createPost } from "../../services/postService";
 import { Auth } from "../../services/AuthService"
-import $ from 'jquery';
 
 class TextModal extends React.Component {
   constructor(props) {

@@ -5,9 +5,6 @@ import ImageModal from "../modal/ImageModal";
 import VideoModal from "../modal/VideoModal";
 
 class MainButton extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   onUpdateSuccess = () => {
     this.props.afterCreation();
