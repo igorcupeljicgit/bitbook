@@ -1,14 +1,13 @@
 import React from "react";
-import "./ModalPosts.css";
-import {createPost} from "../../services/postService";
-import {Auth} from "../../services/AuthService"
+import { createPost } from "../../services/postService";
+import { Auth } from "../../services/AuthService"
 
 
 class VideoModal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      id:  Auth.getUserId(),
+      id: Auth.getUserId(),
       videoUrl: ""
     };
   }
@@ -34,45 +33,31 @@ class VideoModal extends React.Component {
   };
 
   render() {
-    return (
-      <div
-        className="modal-wrapper main "
-        style={{
-          transform: this.props.show ? "translateY(0vh)" : "translateY(-100vh)",
-          opacity: this.props.show ? "1" : "0"
-        }}
-      >
-        <div className="modal-header">
-          <h3>New Video post</h3>
-          <span className="close-modal-btn" onClick={this.props.close}>
-            ×
-          </span>
-        </div>
-        <div className="modal-body row text-left">
-          <label className="ml-3">Enter video URL</label>
-          <div className="col-12">
-            <input
-              className="videoPost"
-              value={this.state.videoUrl}
-              name="videoUrl"
-              onChange={this.onInputChange}
-              type="text"
-            />
+    return <div className="modal fade" id="videoModal" tabIndex="-1" role="dialog" aria-labelledby="ProfileModal" aria-hidden="true">
+      <div className="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div className="modal-content">
+          <div className="modal-header">
+            <h5 className="modal-title" id="exampleModalCenterTitle">Submit Video</h5>
+            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
+          <div className="modal-body">
+            <form>
 
-          {this.props.children}
-        </div>
-
-        <div className="modal-footer">
-          <button className="btn-cancel" onClick={this.props.close}>
-            Close
-          </button>
-          <button onClick={this.changeData} className="btn-continue">
-            Create post
-          </button>
+              <div className="form-group text-left">
+                <label className="col-form-label">Post a YouTube video</label>
+                <input type="text" placeholder="YouTube video URL" name="videoUrl" value={this.state.videoUrl} className="form-control modal-form" onChange={this.onInputChange} />
+              </div>
+            </form>
+          </div>
+          <div className="modal-footer">
+            <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" className="btn btn-primary" onClick={this.changeData}>Post</button>
+          </div>
         </div>
       </div>
-    );
+    </div>
   }
 }
 

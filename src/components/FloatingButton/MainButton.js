@@ -3,66 +3,29 @@ import "./floatingButtonCss.css";
 import TextModal from "../modal/Textmodal";
 import ImageModal from "../modal/ImageModal";
 import VideoModal from "../modal/VideoModal";
-import "../modal/ModalPosts.css";
 
 class MainButton extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      isOpen: false,
-      type: ""
-    };
   }
 
-  openModal = type => {
-    this.setState({
-      isOpen: true,
-      type: type
-    });
-  };
-
-  closeModal = () => {
-    this.setState({
-      isOpen: false,
-      type: ""
-    });
-  };
-
   onUpdateSuccess = () => {
-    this.closeModal();
     this.props.afterCreation();
   };
 
   render() {
-    const { type, isOpen } = this.state;
 
     return (
       <>
-        <TextModal
-          className="modal"
-          show={isOpen && type === "text"}
-          close={this.closeModal}
-          onUpdateSuccess={this.onUpdateSuccess}
-        />
-        <ImageModal
-          className="modal"
-          show={isOpen && type === "image"}
-          close={this.closeModal}
-          onUpdateSuccess={this.onUpdateSuccess}
-        />
-        <VideoModal
-          className="modal"
-          show={isOpen && type === "video"}
-          close={this.closeModal}
-          onUpdateSuccess={this.onUpdateSuccess}
-        />
+        <TextModal onUpdateSuccess={this.onUpdateSuccess} />
+        <ImageModal onUpdateSuccess={this.onUpdateSuccess} />
+        <VideoModal onUpdateSuccess={this.onUpdateSuccess} />
 
         <div id="container-floating" style={{ zIndex: '9999' }}>
           <div
-            className="nd4 nds bg-warning "
-            onClick={() => this.openModal("image")}
+            className="nd4 nds bg-warning zoom"
             data-placement="left"
-            data-original-title="contract@gmail.com"
+            data-toggle="modal" data-target="#imageModal"
           >
             <img alt="" className="reminder" />
             <p className="letter">
@@ -71,20 +34,17 @@ class MainButton extends React.Component {
           </div>
 
           <div
-            className="nd3 nds bg-danger  videoButton"
-            onClick={() => this.openModal("video")}
+            className="nd3 nds bg-danger videoButton zoom"
             data-placement="left"
-            data-original-title="Reminder"
+            data-toggle="modal" data-target="#videoModal"
           >
             <i className="fas fa-film reminder text-white" />
           </div>
 
           <div
-            className="nd1 nds bg-primary "
-            onClick={() => this.openModal("text")}
+            className="nd1 nds bg-primary zoom"
             data-placement="left"
-            data-original-title="Edoardo@live.it"
-          >
+            data-toggle="modal" data-target="#textModal">
             <img alt="" className="reminder bg-primary" />
             <p className="letter">T</p>
           </div>

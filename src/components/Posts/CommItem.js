@@ -1,19 +1,21 @@
 import React from 'react'
-import {fetchData} from '../../services/postService';
+import { fetchData } from '../../services/postService';
+import { Auth } from '../../services/AuthService';
 
 class CommItem extends React.Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            user: {}
+            user: "",
+            auth: Auth.getUserId()
         }
     }
 
     componentDidMount() {
-        fetchData(`/users/${this.props.user}`)
-        .then(user => this.setState({ user }))
-      
+        fetchData(`/users/${this.props.userId}`)
+            .then(user => this.setState({ user }))
+
     }
 
     deleteCommentMethod(id) {
@@ -21,8 +23,10 @@ class CommItem extends React.Component {
     }
 
     render() {
-        const { id, comment } = this.props
-        const { user } = this.state
+        const { id, comment, userId } = this.props
+        const { user, auth } = this.state
+
+        console.log(comment);
 
         const firstName = user.name ? user.name.first : ''
 
@@ -38,7 +42,7 @@ class CommItem extends React.Component {
                         <p className="card-text"><small className="text-muted">{new Date(comment.createdAt).toDateString()}</small></p>
                     </div>
 
-                    {this.props.user === 2 ?
+                    {userId === auth ?
                         <span className="trashcan float-right" onClick={() => this.deleteCommentMethod(id)}><i className="far fa-trash-alt ml-3"></i></span>
                         : <></>}
 
