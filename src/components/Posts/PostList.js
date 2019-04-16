@@ -20,8 +20,8 @@ const PostList = (props) => {
                 ? post.imageUrl
                 : post.videoUrl
           }
-          handleDelete={this.props.handleDelete}
-          fetchPosts={this.props.fetchPosts}
+          handleDelete={props.handleDelete}
+          fetchPosts={props.fetchPosts}
         />
       ))}
     </div>

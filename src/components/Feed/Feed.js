@@ -3,6 +3,7 @@ import React from "react";
 import PostList from "./../Posts/PostList";
 import {deletePost, fetchData} from "../../services/postService";
 import Pagination from "./Pagination";
+import { MainButton } from "../FloatingButton/MainButton";
 
 class Feed extends React.Component {
   constructor(props) {
@@ -70,6 +71,7 @@ class Feed extends React.Component {
           handlePage={this.setPageNum}
           next={this.nextPage}
           prev={this.prevPage} />
+          <MainButton afterCreation={this.fetchPosts} />
         </div>
 
         <div className="col-2">
