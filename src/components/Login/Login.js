@@ -1,4 +1,5 @@
 import React from "react";
+
 import "./Login.css";
 import {fetchLogin} from "../../services/userService";
 import {fetchRegister} from "../../services/userService";
@@ -18,13 +19,12 @@ class Login extends React.Component {
       name: ""
     };
   }
-
   onInputChange = e => {
     this.setState({
       [e.target.name]: e.target.value
     });
   };
-
+  
   switchClass = () => {
     this.setState({
       isActive: "nav-link ",
@@ -33,7 +33,7 @@ class Login extends React.Component {
       isActive4: " isNotShowing"
     });
   };
-
+  
   switchClass2 = () => {
     this.setState({
       isActive: "nav-link active",
@@ -42,21 +42,22 @@ class Login extends React.Component {
       isActive4: " isShowing"
     });
   };
-
+  
   loginRequest = () => {
     const data = {
       email: this.state.email,
       password: this.state.password
     };
-
+    
     fetchLogin(data)
-      .then(token=> Auth.loginUser(token))
-     
-      .then(() => window.location.href="/#/feed")
-      .then(()=> window.location.reload())
-      
+    .then(token=> {
+      return Auth.loginUser(token)
+    })
+    .then(() => {
+      this.props.history.push("/feed");
+    });
   };
-
+  
   registerRequest = () => {
     const data = {
       name: this.state.name,
@@ -65,17 +66,21 @@ class Login extends React.Component {
     };
     fetchRegister(data)
     .then((res)=>{
-    localStorage.setItem("token",res.accessToken)});
-    console.log(localStorage.getItem("token"))
-  };
+      localStorage.setItem("token",res.accessToken)});
+      console.log(localStorage.getItem("token"))
+    };
+    
+    
+    render() {
 
-
-  render() {
-    return (
-      <> <header>
+      const objectHistory=this.props
+     console.log(objectHistory)
+     
+     return (
+        <> <header>
       <nav className="navbar navbar-expand navbar navbar-dark row justify-content-between shadow">
         <div className="container">
-          <span to="/" className="navbar-brand">
+          <span className="navbar-brand">
             <img src={bitbooklogo} height="26px" alt="" />
             <span>itbook</span>
           </span>
@@ -102,7 +107,6 @@ class Login extends React.Component {
                   <button
                     className={`nav-link ${this.state.isActive2}`}
                     onClick={this.switchClass}
-                
                   >
                     Login
                   </ button>
