@@ -86,6 +86,15 @@ input {
 .form-control:-ms-input-placeholder { color: white; opacity: 0.5 }  /* Internet Explorer 10-11 */
 .form-control::-ms-input-placeholder { color: white; opacity: 0.5 }  /* Microsoft Edge */
 
+.form-control.modal-form[value] {
+  color: #000 !important;
+}
+.form-control.modal-form::-webkit-input-placeholder { color: black; opacity: 0.5 }  /* WebKit, Blink, Edge */
+.form-control.modal-form:-moz-placeholder { color: black; opacity: 0.5 }  /* Mozilla Firefox 4 to 18 */
+.form-control.modal-form::-moz-placeholder { color: black; opacity: 0.5 }  /* Mozilla Firefox 19+ */
+.form-control.modal-form:-ms-input-placeholder { color: black; opacity: 0.5 }  /* Internet Explorer 10-11 */
+.form-control.modal-form::-ms-input-placeholder { color: black; opacity: 0.5 }  /* Microsoft Edge */
+
 
 .inputimage, .inputname, .inputSurname, .inputInfo{
   width: 100%;
@@ -101,6 +110,14 @@ input {
 }
 .profileheight{
   height: 250px;
+}
+.thumb {
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+  margin: 5px;
+  background-position: center center;
+  background-size: cover;
 }
 
 .videoWrap {

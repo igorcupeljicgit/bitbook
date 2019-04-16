@@ -1,7 +1,6 @@
 import React from "react";
 import Post from "./Post";
 import "../FloatingButton/floatingButtonCss.css";
-import "../modal/Modal.css";
 
 const PostList = (props) => {
 

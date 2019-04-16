@@ -8,8 +8,7 @@ class Profile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: [],
-      isShowing: false
+      user: []
     };
   }
 
@@ -18,9 +17,7 @@ class Profile extends React.Component {
   }
 
   fetchUser() {
-
     const userId = this.props.match.params.id || Auth.getUserId();
-    console.log(userId);
     fetchSingleUser(userId).then(user => {
       this.setState({
         user
@@ -33,22 +30,8 @@ class Profile extends React.Component {
       this.fetchUser();
     }
   }
-  openModalHandler = () => {
-    this.setState({
-      isShowing: true
-    });
-  };
-
-  closeModalHandler = () => {
-    this.setState({
-      isShowing: false
-    });
-  };
 
   onUpdateSuccess = () => {
-    this.setState({
-      isShowing: false
-    });
     this.fetchUser();
   };
 
@@ -79,12 +62,12 @@ class Profile extends React.Component {
                   {user.name} {user.surname}
                 </h5>
                 {user.id === Auth.getUserId() ? (
-                  <button
-                    className="btn text-white bg-secondary mb-3"
-                    onClick={this.openModalHandler}
-                  >
-                    Update profile
-                  </button>
+                  <>
+                    <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                      Update Profile
+                    </button>
+                    <Modal onUpdateSuccess={this.onUpdateSuccess} />
+                  </>
                 ) : (
                     ""
                   )}
@@ -93,7 +76,7 @@ class Profile extends React.Component {
                   <b>About:</b> {user.about}
                   <br />
                   <b>Position:</b> {user.position}
-                  <b className="ml-3"> Country code:</b>
+                  <b className="ml-3">Country: </b>
                   {user.company}
                 </p>
                 <div className="row justify-content-center">
@@ -112,13 +95,6 @@ class Profile extends React.Component {
                 </div>
               </div>
             </div>
-
-            <Modal
-              className="modal"
-              show={this.state.isShowing}
-              close={this.closeModalHandler}
-              onUpdateSuccess={this.onUpdateSuccess}
-            />
           </div>
         </div>
       </>

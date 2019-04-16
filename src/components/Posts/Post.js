@@ -1,7 +1,6 @@
 import React from 'react'
-import {fetchData} from '../../services/postService';
+import { fetchData } from '../../services/postService';
 import { Link } from 'react-router-dom'
-// import deletePost from '../services/postService';
 import { Auth } from '../../services/AuthService';
 
 class Post extends React.Component {
@@ -47,13 +46,13 @@ class Post extends React.Component {
 
   render() {
     const { type, content, id, userId, sid } = this.props
-   
+
     const { comments } = this.state
 
 
     const contentFrame = type === 'text' ? (<p className='p-3'>{content}</p>) : type === 'image' ? (
 
-      <img src={content} className="rounded" width="100%" style={{ marginBottom: '10px' }} alt="" />
+      <img src={content} width="100%" style={{ marginBottom: '10px', borderRadius: '5px 5px 0 0' }} alt="" />
 
     ) : (
         <div className='videoWrap'>

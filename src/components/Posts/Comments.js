@@ -1,9 +1,9 @@
 import React from 'react'
-import {fetchData} from '../../services/postService';
+import { fetchData } from '../../services/postService';
 import CommItem from './CommItem';
 
-import {postComm} from '../../services/commentsService';
-import {deleteComment} from '../../services/commentsService';
+import { postComm } from '../../services/commentsService';
+import { deleteComment } from '../../services/commentsService';
 import SearchFail from '../../shared/SearchFail';
 
 
@@ -75,7 +75,7 @@ class Comments extends React.Component {
                 </div>
                 {
                     comments.length !== 0 ? comments.map((obj) => {
-                        return <CommItem key={obj.id} id={obj.id} comment={obj} user={obj.userId} handleDelete={this.removeComment} />
+                        return <CommItem key={obj.id} id={obj.id} comment={obj} userId={obj.userId} handleDelete={this.removeComment} />
                     }) :
                         <div className='row justify-content-center'>
                             <div className='col-5'>
