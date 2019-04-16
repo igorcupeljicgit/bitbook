@@ -1,5 +1,4 @@
 import React from "react";
-
 import PostList from "./../Posts/PostList";
 import {deletePost, fetchData} from "../../services/postService";
 import Pagination from "./Pagination";
@@ -57,7 +56,9 @@ class Feed extends React.Component {
     const filteredPosts = posts[pageNum].filter(post => post.type === filter);
 
     return (
+      <div className="container">
       <div className="row">
+      
         <div className="col-2" />
 
         <div className="col-8">
@@ -116,6 +117,10 @@ class Feed extends React.Component {
           </div>
         </div>
       </div>
+
+
+      </div>
+
     );
   }
 }

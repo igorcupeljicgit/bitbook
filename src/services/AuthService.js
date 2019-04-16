@@ -4,6 +4,10 @@ class AuthService {
     isLoggedIn() {
         return !!localStorage.getItem('token')
     };
+
+    logout() {
+        localStorage.removeItem("token")
+    }
     
     getUserId() {
         const token = localStorage.getItem('token');
