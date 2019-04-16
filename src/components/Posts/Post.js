@@ -46,7 +46,7 @@ class Post extends React.Component {
 
 
   render() {
-    const { type, content, id, sid } = this.props
+    const { type, content, id, userId, sid } = this.props
    
     const { comments } = this.state
 
@@ -70,7 +70,7 @@ class Post extends React.Component {
               <span className={`badge badge-pill badge-${type === 'text' ? 'primary' : type === 'image' ? 'warning' : 'danger'}`} style={{ paddingTop: '5px' }} >{type}</span>
               <span>
                 <span className="badge badge-pill badge-secondary"> {comments.length} comments</span>
-                {id === Auth.getUserId() ?
+                {userId === Auth.getUserId() ?
                   <span className="trashcan" onClick={(e) => this.deletePostMethod(id, e)}><i className="far fa-trash-alt ml-3"></i></span>
                   : <></>}
               </span>

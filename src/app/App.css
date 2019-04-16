@@ -6,7 +6,7 @@ body {
 
 
 /* Color Scheme */
-nav, footer, .chip-icon {
+header, footer, .chip-icon {
   background: #44414f !important;
 }
 .customCard, .customCard-front {
@@ -131,7 +131,7 @@ iframe {
   outline: none
 }
 
-.dropdown-item:hover, .trashcan:hover {
+.dropdown-item:hover, .trashcan:hover, .page-item:hover {
   cursor: pointer;
 }
 

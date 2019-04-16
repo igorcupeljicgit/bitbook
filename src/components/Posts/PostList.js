@@ -3,19 +3,11 @@ import Post from "./Post";
 import "../FloatingButton/floatingButtonCss.css";
 import "../modal/Modal.css";
 
-class PostList extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-   
-    };
-  }
-render(){
-  const { posts } = this.props
+const PostList = (props) => {
 
   return (
-    <div className="col-8">
-      {posts.map(post => (
+    <div className="post-list">
+      {props.posts.map(post => (
         <Post
           key={post.id}
           id={post.id}
@@ -28,14 +20,12 @@ render(){
                 ? post.imageUrl
                 : post.videoUrl
           }
-          handleDelete={this.props.handleDelete}
-          fetchPosts={this.props.fetchPosts}
+          handleDelete={props.handleDelete}
+          fetchPosts={props.fetchPosts}
         />
       ))}
-    
     </div>
   );
-}
 }
 
 export default PostList;

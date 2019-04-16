@@ -1,7 +1,7 @@
 import React from "react";
-import {fetchSingleUser} from "../../services/userService";
+import { fetchSingleUser } from "../../services/userService";
 import Modal from "../../components/modal/Modal";
-import {Auth} from "../../services/AuthService"
+import { Auth } from "../../services/AuthService"
 
 
 class Profile extends React.Component {
@@ -18,7 +18,7 @@ class Profile extends React.Component {
   }
 
   fetchUser() {
-  
+
     const userId = this.props.match.params.id || Auth.getUserId();
     console.log(userId);
     fetchSingleUser(userId).then(user => {

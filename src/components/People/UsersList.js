@@ -1,5 +1,5 @@
 import React from "react"
-import {fetchUsers} from '../../services/userService'
+import { fetchUsers } from '../../services/userService'
 import UserListItem from './UsersListItem'
 import User from '../../entities/User'
 import SearchFail from "../../shared/SearchFail"
@@ -17,8 +17,8 @@ class UsersList extends React.Component {
         fetchUsers()
             .then((element) => {
                 console.log(element)
-                return element.map(({id,avatarUrl="[https://www.petmd.com/sites/default/files/Acute-Dog-Diarrhea-47066074.jpg]",name="['']",about="[da]",comments="['']",posts="['']",createdAt="['']"}) => {
-                    return new User(id,avatarUrl,name.first,name.last,about.bio,about.job,about.countryCode,comments,posts,createdAt)
+                return element.map(({ id, avatarUrl = "[https://www.petmd.com/sites/default/files/Acute-Dog-Diarrhea-47066074.jpg]", name = "['']", about = "[da]", comments = "['']", posts = "['']", createdAt = "['']" }) => {
+                    return new User(id, avatarUrl, name.first, name.last, about.bio, about.job, about.countryCode, comments, posts, createdAt)
                 })
 
             })
@@ -40,8 +40,7 @@ class UsersList extends React.Component {
     render() {
         const { users, searchInput } = this.state
 
-        const filteredUsers = users.filter((user) => (user.name.toLowerCase().indexOf(searchInput.toLowerCase()) !== -1));
-
+        const filteredUsers = users.filter((user) => { if (user.name) return user.name.toLowerCase().indexOf(searchInput.toLowerCase()) !== -1 });
 
         return (
             <>
