@@ -6,7 +6,7 @@ export const fetchPosts = () => {
     return fetchData('/posts')
 }
 
-export const fetchData=(str)=> {
+export const fetchData = (str) => {
     const myFetch = fetch(BASE_API_URL + str, {
         method: 'GET',
         headers: new Headers({
@@ -20,9 +20,7 @@ export const fetchData=(str)=> {
     return myFetch
 };
 
-
-
-export const deletePost=(postId)=> {
+export const deletePost = (postId) => {
 
     const myFetch = fetch(`${BASE_API_URL}/posts/${postId}`, {
         method: 'DELETE',
@@ -30,26 +28,24 @@ export const deletePost=(postId)=> {
             'x-api-key': 'B1tD3V',
             'Content-Type': 'application/json',
             'Authorization': Auth.getUserToken()
-
-        }),
-        postId: JSON.stringify(postId)
+        })
     })
         .then(res => res)
 
     return myFetch
 };
 
-export const createPost=(data)=> {
-  return fetch(BASE_API_URL + "/posts", {
-    method: "POST",
-    headers: new Headers({
-      "x-api-key": "B1tD3V",
-      "Content-Type": "application/json",
-      'Authorization': Auth.getUserToken()
-    }),
+export const createPost = (data) => {
+    return fetch(BASE_API_URL + "/posts", {
+        method: "POST",
+        headers: new Headers({
+            "x-api-key": "B1tD3V",
+            "Content-Type": "application/json",
+            'Authorization': Auth.getUserToken()
+        }),
 
-    body: JSON.stringify({...data, isPublic: true})
-  }).then(res => res.json());
+        body: JSON.stringify({ ...data, isPublic: true })
+    }).then(res => res.json());
 }
 
 
