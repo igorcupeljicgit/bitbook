@@ -3,6 +3,7 @@ import "./Login.css";
 import {fetchLogin} from "../../services/userService";
 import {fetchRegister} from "../../services/userService";
 import { Auth } from '../../services/AuthService';
+import bitbooklogo from "../../images/bitbooklogo.png"
 
 class Login extends React.Component {
   constructor(props) {
@@ -50,7 +51,10 @@ class Login extends React.Component {
 
     fetchLogin(data)
       .then(token=> Auth.loginUser(token))
-      .then(() => this.props.history.push('feed'));
+     
+      .then(() => window.location.href="/#/feed")
+      .then(()=> window.location.reload())
+      
   };
 
   registerRequest = () => {
@@ -68,7 +72,18 @@ class Login extends React.Component {
 
   render() {
     return (
-      <div className="row">
+      <> <header>
+      <nav className="navbar navbar-expand navbar navbar-dark row justify-content-between shadow">
+        <div className="container">
+          <span to="/" className="navbar-brand">
+            <img src={bitbooklogo} height="26px" alt="" />
+            <span>itbook</span>
+          </span>
+          </div>
+          </nav>
+          </header>
+      
+      <div className="row mt-5">
         <div className="col-6 text-white">
           <h2>Bitbook</h2>
           <p>
@@ -243,6 +258,13 @@ class Login extends React.Component {
           </div>
         </div>
       </div>
+    
+      <footer className='page-footer font-small mt-5 fixed-bottom'>
+            <div className="footer-copyright text-center text-white py-3" >
+                <span style={{ opacity: '0.5' }}>&copy; {new Date().getFullYear()} Copyright</span><span> PROJECT-X</span>
+            </div>
+        </footer>
+      </>
     );
   }
 }
