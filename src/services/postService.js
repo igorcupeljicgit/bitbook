@@ -28,7 +28,9 @@ export const deletePost = (postId) => {
             'x-api-key': 'B1tD3V',
             'Content-Type': 'application/json',
             'Authorization': Auth.getUserToken()
-        })
+
+        }),
+        
     })
         .then(res => res)
 
