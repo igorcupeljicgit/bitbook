@@ -1,8 +1,10 @@
 import React from "react";
+
 import "./Login.css";
 import {fetchLogin} from "../../services/userService";
 import {fetchRegister} from "../../services/userService";
 import { Auth } from '../../services/AuthService';
+import bitbooklogo from "../../images/bitbooklogo.png"
 
 class Login extends React.Component {
   constructor(props) {
@@ -17,13 +19,12 @@ class Login extends React.Component {
       name: ""
     };
   }
-
   onInputChange = e => {
     this.setState({
       [e.target.name]: e.target.value
     });
   };
-
+  
   switchClass = () => {
     this.setState({
       isActive: "nav-link ",
@@ -32,7 +33,7 @@ class Login extends React.Component {
       isActive4: " isNotShowing"
     });
   };
-
+  
   switchClass2 = () => {
     this.setState({
       isActive: "nav-link active",
@@ -41,18 +42,22 @@ class Login extends React.Component {
       isActive4: " isShowing"
     });
   };
-
+  
   loginRequest = () => {
     const data = {
       email: this.state.email,
       password: this.state.password
     };
-
+    
     fetchLogin(data)
-      .then(token=> Auth.loginUser(token))
-      .then(() => this.props.history.push('feed'));
+    .then(token=> {
+      return Auth.loginUser(token)
+    })
+    .then(() => {
+      this.props.history.push("/feed");
+    });
   };
-
+  
   registerRequest = () => {
     const data = {
       name: this.state.name,
@@ -61,14 +66,29 @@ class Login extends React.Component {
     };
     fetchRegister(data)
     .then((res)=>{
-    localStorage.setItem("token",res.accessToken)});
-    console.log(localStorage.getItem("token"))
-  };
+      localStorage.setItem("token",res.accessToken)});
+      console.log(localStorage.getItem("token"))
+    };
+    
+    
+    render() {
 
-
-  render() {
-    return (
-      <div className="row">
+      const objectHistory=this.props
+     console.log(objectHistory)
+     
+     return (
+        <> <header>
+      <nav className="navbar navbar-expand navbar navbar-dark row justify-content-between shadow">
+        <div className="container">
+          <span className="navbar-brand">
+            <img src={bitbooklogo} height="26px" alt="" />
+            <span>itbook</span>
+          </span>
+          </div>
+          </nav>
+          </header>
+      
+      <div className="row mt-5">
         <div className="col-6 text-white">
           <h2>Bitbook</h2>
           <p>
@@ -87,7 +107,6 @@ class Login extends React.Component {
                   <button
                     className={`nav-link ${this.state.isActive2}`}
                     onClick={this.switchClass}
-                
                   >
                     Login
                   </ button>
@@ -243,6 +262,13 @@ class Login extends React.Component {
           </div>
         </div>
       </div>
+    
+      <footer className='page-footer font-small mt-5 fixed-bottom'>
+            <div className="footer-copyright text-center text-white py-3" >
+                <span style={{ opacity: '0.5' }}>&copy; {new Date().getFullYear()} Copyright</span><span> PROJECT-X</span>
+            </div>
+        </footer>
+      </>
     );
   }
 }

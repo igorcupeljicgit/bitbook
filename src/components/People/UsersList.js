@@ -40,7 +40,8 @@ class UsersList extends React.Component {
     render() {
         const { users, searchInput } = this.state
 
-        const filteredUsers = users.filter((user) => { if (user.name) return user.name.toLowerCase().indexOf(searchInput.toLowerCase()) !== -1 });
+        const filteredUsers = users.filter((user) => {
+            if (user.name){ return user.name.toLowerCase().indexOf(searchInput.toLowerCase()) !== -1} });
 
         return (
             <>
