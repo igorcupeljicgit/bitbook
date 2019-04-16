@@ -6,9 +6,11 @@ import Feed from "../components/Feed/Feed";
 import PostPage from "../components/Posts/PostPage";
 import Login from "../components/Login/Login";
 
+
 const Main = () => {
   return (
     <main className="container">
+   
       <Switch>
         <Route path="/posts/:id" component={PostPage} />
         <Route path="/users/:id" component={Profile} />

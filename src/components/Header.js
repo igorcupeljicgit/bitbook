@@ -1,9 +1,20 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import bitbooklogo from "./../images/bitbooklogo.png";
+import { Auth } from "../services/AuthService";
+
+
+
 
 const Header = () => {
-  return (
+  const removeToken = () => { 
+    Auth.logout()
+   
+    window.location.reload()
+    
+  };
+
+    return (
     <header>
       <nav className="navbar navbar-expand navbar navbar-dark row justify-content-between shadow">
         <div className="container">
@@ -37,6 +48,16 @@ const Header = () => {
                 activeClassName="selected"
               >
                 Profile
+              </NavLink></li>
+            <li>
+              <NavLink
+                to="/"
+                className="nav-link"
+                onClick={removeToken}
+                
+                activeClassName="selected"
+              >
+                Log Out
               </NavLink>
               
 
@@ -45,7 +66,12 @@ const Header = () => {
         </div>
       </nav>
     </header>
-  );
-};
+    )
+}
+
+
+
+
+
 
 export default Header;
