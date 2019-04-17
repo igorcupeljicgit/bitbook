@@ -1,7 +1,7 @@
 import { BASE_API_URL } from '../shared/constants'
 import { Auth } from './AuthService';
 
-export const postComm=(postId, data)=> {
+export const postComm = (postId, data) => {
 
     const body = {
         postId: postId,
@@ -15,7 +15,6 @@ export const postComm=(postId, data)=> {
             'x-api-key': 'B1tD3V',
             'Content-Type': 'application/json',
             'Authorization': Auth.getUserToken()
-
         }),
         body: JSON.stringify(body)
     })
@@ -25,16 +24,15 @@ export const postComm=(postId, data)=> {
 };
 
 
-export const deleteComment=(id)=> {
+export const deleteComment = (id) => {
 
     const myFetch = fetch(`${BASE_API_URL}/comments/${id}`, {
         method: 'DELETE',
         headers: new Headers({
             'x-api-key': 'B1tD3V',
-            'Content-Type': 'application/json'
-
-        }),
-        commentId: JSON.stringify(id)
+            'Content-Type': 'application/json',
+            'Authorization': Auth.getUserToken()
+        })
     })
         .then(res => res)
 
