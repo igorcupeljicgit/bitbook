@@ -179,3 +179,7 @@ iframe {
 .chips {
   padding: 12px 0;
 }
+
+.dropdown-toggle::after {
+  display: none;
+}
