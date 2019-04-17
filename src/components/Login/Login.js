@@ -166,7 +166,7 @@ class Login extends React.Component {
 
                             onChange={this.onInputChange}
                             name="password"
-                            type="text"
+                            type="password"
                             className="form-control text-dark"
                             aria-label="Default"
                             aria-describedby="inputGroup-sizing-default"
