@@ -5,7 +5,7 @@ import { Auth } from "../services/AuthService";
 import { withRouter } from 'react-router'
 
 const Header = (props) => {
-  const removeToken = () => { 
+  const removeToken=()=>{ 
     Auth.logout();
     props.history.push('/');
   };
