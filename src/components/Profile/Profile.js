@@ -36,6 +36,7 @@ class Profile extends React.Component {
   };
 
   render() {
+    console.log(this.state.user.id)
     if (!this.state.user.id) {
       return <p>Loading</p>;
     }

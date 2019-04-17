@@ -143,13 +143,14 @@ class Login extends React.Component {
 
                             onChange={this.onInputChange}
                             name="email"
-                            type="text"
+                            type="email"
                             className="form-control text-dark"
                             aria-label="Default"
                             aria-describedby="inputGroup-sizing-default"
                           />
                         </div>
                       </div>
+                     
                     </div>
                     <div className="row">
                       <div className="col-12">
@@ -173,6 +174,7 @@ class Login extends React.Component {
                           />
                         </div>
                       </div>
+                     
                     </div>
                     <div className="row">
                       <button

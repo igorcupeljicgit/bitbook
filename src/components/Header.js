@@ -5,6 +5,7 @@ import { Auth } from "../services/AuthService";
 import { withRouter } from 'react-router'
 import { fetchSingleUser } from '../services/userService'
 
+<<<<<<< HEAD
 class Header extends React.Component {
   constructor () {
     super()
@@ -21,6 +22,10 @@ class Header extends React.Component {
   }
   
   removeToken = () => { 
+=======
+const Header = (props) => {
+  const removeToken=()=>{ 
+>>>>>>> master
     Auth.logout();
     this.props.history.push('/');
   };
