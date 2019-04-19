@@ -33,18 +33,17 @@ class ImageModal extends React.Component {
     return <div className="modal fade" id="imageModal" tabIndex="-1" role="dialog" aria-labelledby="ProfileModal" aria-hidden="true">
       <div className="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div className="modal-content">
-          <div className="modal-header">
-            <h5 className="modal-title" id="exampleModalCenterTitle">Submit Image</h5>
-            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div className="modal-body">
-            <form>
-
+          <div className="modal-header d-block">
+            <div className="d-flex flex-row">
+              <h5 className="modal-title" id="exampleModalCenterTitle">Submit Image</h5>
+              <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <form className="flex-row">
               <div className="form-group text-left">
-                <label className="col-form-label">Post an Image</label>
-                <input type="text" placeholder="Image url..." name="imageUrl" value={this.state.imageUrl} className="form-control modal-form" onChange={this.onInputChange} />
+                <label className="col-form-label"></label>
+                <input type="text" placeholder="Image URL" name="imageUrl" value={this.state.imageUrl} className="form-control modal-form" onChange={this.onInputChange} />
               </div>
             </form>
           </div>

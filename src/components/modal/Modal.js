@@ -87,7 +87,7 @@ class Modal extends React.Component {
                 </div>
                 <div className="avatar-preview text-center" style={{ color: "grey" }}>
                   <p>Preview</p>
-                  <div className="thumb" style={{ backgroundImage: "url(" + this.state.avatarInput + ")" }}></div>
+                  <div className="thumb" style={{ backgroundImage: "url(" + this.state.avatarInput + ")" }} />
                 </div>
               </div>
               <div className="col-8">

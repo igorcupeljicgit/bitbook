@@ -2,6 +2,7 @@ import React from "react";
 import { fetchSingleUser } from "../../services/userService";
 import Modal from "../../components/modal/Modal";
 import { Auth } from "../../services/AuthService"
+import Avatar from "../Avatar";
 
 
 class Profile extends React.Component {
@@ -35,12 +36,15 @@ class Profile extends React.Component {
     this.fetchUser();
   };
 
+
   render() {
-    console.log(this.state.user.id)
+
     if (!this.state.user.id) {
       return <p>Loading</p>;
     }
+
     const user = this.state.user;
+
     return (
       <>
         <div className="container mt-4" key={user.id}>
@@ -50,13 +54,10 @@ class Profile extends React.Component {
 
           <div className="row justify-content-center ">
             <div className="card customCard shadow col-6">
-              <div className="col text-center">
-                <img
-                  src={user.img}
-                  className="mt-4"
-                  style={{ borderRadius: "50%", width: "50%" }}
-                  alt=""
-                />
+              <div className="col text-center d-flex justify-content-center">
+                <div className="profileImage mt-4">
+                  <Avatar src={user.img} size="250px" shape="round" />
+                </div>
               </div>
               <div className="card-body text-center">
                 <h5 className="card-title">
@@ -64,7 +65,7 @@ class Profile extends React.Component {
                 </h5>
                 {user.id === Auth.getUserId() ? (
                   <>
-                    <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                    <button type="button" className="btn btn-primary mb-3" data-toggle="modal" data-target="#exampleModalCenter">
                       Update Profile
                     </button>
                     <Modal onUpdateSuccess={this.onUpdateSuccess} />

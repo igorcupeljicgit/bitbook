@@ -32,18 +32,17 @@ class TextModal extends React.Component {
     return <div className="modal fade" id="textModal" tabIndex="-1" role="dialog" aria-labelledby="ProfileModal" aria-hidden="true">
       <div className="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div className="modal-content">
-          <div className="modal-header">
-            <h5 className="modal-title" id="exampleModalCenterTitle">Submit post</h5>
-            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div className="modal-body">
-            <form onSubmit={this.changeData}>
-
+          <div className="modal-header d-block">
+            <div className="d-flex flex-row">
+              <h5 className="modal-title" id="exampleModalCenterTitle">Submit post</h5>
+              <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <form onSubmit={this.changeData} className="flex-row">
               <div className="form-group text-left">
-                <label className="col-form-label">What's up?</label>
-                <input type="text" placeholder="..." name="textpost" value={this.state.textpost} className="form-control modal-form" onChange={this.onInputChange} />
+                <label className="col-form-label"></label>
+                <input type="text" placeholder="What's up?" name="textpost" value={this.state.textpost} className="form-control modal-form" onChange={this.onInputChange} />
               </div>
             </form>
           </div>

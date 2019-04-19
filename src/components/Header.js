@@ -4,8 +4,8 @@ import bitbooklogo from "./../images/bitbooklogo.png";
 import { Auth } from "../services/AuthService";
 import { withRouter } from 'react-router'
 import { fetchSingleUser } from '../services/userService'
+import Avatar from './Avatar'
 
-<<<<<<< HEAD
 class Header extends React.Component {
   constructor () {
     super()
@@ -22,17 +22,11 @@ class Header extends React.Component {
   }
   
   removeToken = () => { 
-=======
-const Header = (props) => {
-  const removeToken=()=>{ 
->>>>>>> master
     Auth.logout();
     this.props.history.push('/');
   };
 
   render () {
-
-    console.log(this.state.user);
 
     return (
     <header>
@@ -63,21 +57,22 @@ const Header = (props) => {
             </li>
             <li className="nav-item ml-2">
               <div className="col-2 p-0" style={{ cursor: "pointer" }}>
-                <div className="dropdown p-0 sticky-top">
+                <div className="dropdown p-0" style={{ width: "35px" }}>
                   <span
                     className="dropdown-toggle"
-                    id="dropdownMenuButton"
                     data-toggle="dropdown"
                     aria-haspopup="true"
+                    aria-expanded="false"
                   >
-                    <img src={this.state.user.img} style={{ display: "block", height: "30px", width: "30px", borderRadius: "50%", border: "1px solid white" }} alt="" />
+                    <Avatar src={this.state.user.img} size="30px" shape="round" outline="white" />
                   </span>
-                  <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">                    
+                  <div className="dropdown-menu dropdown-menu-right" style={{ zIndex: "1040 !important" }} aria-labelledby="dropdownMenuButton">                    
                     <span>
                     <NavLink
                       to="/profile"
                       className="dropdown-item"
                     >
+                    <i className="far fa-user mr-2"></i>
                       Profile
                     </NavLink>
                     </span>
@@ -85,11 +80,13 @@ const Header = (props) => {
                     <span>
                     <NavLink
                       to="/"
-                        className="dropdown-item-custom p-4"
-                        onClick={this.removeToken}
-                        style={{ color: "red" }}
+                      id="userLogOut"
+                      className="dropdown-item"
+                      onClick={this.removeToken}
+                      style={{ color: "red" }}
                       >
-                      Log Out
+                      <i className="fas fa-sign-out-alt mr-2"></i>
+                      Log out
                     </NavLink>
                     </span>
                   </div>

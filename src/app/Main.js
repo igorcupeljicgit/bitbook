@@ -9,7 +9,6 @@ import PostPage from "../components/Posts/PostPage";
 const Main = () => {
   return (
     <main className="container">
-   
       <Switch>
         <Route path="/posts/:id" component={PostPage} />
         <Route path="/users/:id" component={Profile} />

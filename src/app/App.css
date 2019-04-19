@@ -1,5 +1,6 @@
 body {
   overflow-x: hidden;
+  background: url() no-repeat;
   background: #686576;
 }
 
@@ -41,6 +42,9 @@ main {
   flex: 1 0 auto;
 }
 
+a {
+  color: unset
+}
 a:hover {
   text-decoration: none;
 }
@@ -148,6 +152,9 @@ iframe {
   outline: none
 }
 
+.dropdown-menu {
+  min-width: auto !important
+}
 .dropdown-item:hover, .trashcan:hover, .page-item:hover {
   cursor: pointer;
 }
@@ -182,4 +189,34 @@ iframe {
 
 .dropdown-toggle::after {
   display: none;
+}
+#userLogOut {
+  background-color: inherit !important;
+}
+#userLogOut:hover {
+  background-color: #f8f9fa !important;
+}
+#filterDropdown {
+  width: 105px
+}
+
+.thumbnail {
+  position: relative;
+  overflow: hidden;
+}
+.thumbnail img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%,-50%);
+      -ms-transform: translate(-50%,-50%);
+          transform: translate(-50%,-50%);
+}
+.thumbnail img.landscapeImage {
+  height: 100%;
+  width: auto;
+}
+.thumbnail img.portraitImage {
+  width: 100%;
+  height: auto;
 }

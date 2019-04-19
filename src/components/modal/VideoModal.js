@@ -36,17 +36,16 @@ class VideoModal extends React.Component {
     return <div className="modal fade" id="videoModal" tabIndex="-1" role="dialog" aria-labelledby="ProfileModal" aria-hidden="true">
       <div className="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div className="modal-content">
-          <div className="modal-header">
-            <h5 className="modal-title" id="exampleModalCenterTitle">Submit Video</h5>
-            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div className="modal-body">
-            <form>
-
+          <div className="modal-header d-block">
+            <div className="d-flex flex-row">
+              <h5 className="modal-title" id="exampleModalCenterTitle">Submit Video</h5>
+              <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <form className="flex-row">
               <div className="form-group text-left">
-                <label className="col-form-label">Post a YouTube video</label>
+                <label className="col-form-label"></label>
                 <input type="text" placeholder="YouTube video URL" name="videoUrl" value={this.state.videoUrl} className="form-control modal-form" onChange={this.onInputChange} />
               </div>
             </form>

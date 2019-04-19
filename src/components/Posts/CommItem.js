@@ -1,6 +1,7 @@
 import React from 'react'
 import { fetchData } from '../../services/postService';
 import { Auth } from '../../services/AuthService';
+import Avatar from '../Avatar';
 
 class CommItem extends React.Component {
     constructor(props) {
@@ -32,19 +33,19 @@ class CommItem extends React.Component {
 
         return <div className="card mb-3 customCard">
             <div className="row no-gutters">
-                <div className="col-md-2 text-center">
-                    <img src={user.avatarUrl} className="card-img" style={{ borderRadius: '50%', maxWidth: '5em' }} alt="..." />
+                <div className="col-md-2 d-flex flex-column align-items-center">
+                    <Avatar src={user.avatarUrl} size="70px" shape="round" />
                     <h5 className="card-title text-center m-0">{firstName}</h5>
                 </div>
                 <div className="col-md-10">
-                    <div className="card-body">
+                    <div style={{ paddingTop: "1.25rem", paddingLeft: "1.25rem" }}>
                         <p className="card-text">{comment.body}</p>
-                        <p className="card-text"><small className="text-muted">{new Date(comment.createdAt).toDateString()}</small></p>
-                    </div>
-
+                        <span className="card-text"><small className="text-muted">{new Date(comment.createdAt).toDateString()}</small></span>
                     {userId === auth ?
                         <span className="trashcan float-right" onClick={() => this.deleteCommentMethod(id)}><i className="far fa-trash-alt ml-3"></i></span>
                         : <></>}
+                    </div>
+
 
                 </div>
             </div>

@@ -59,24 +59,8 @@ class Feed extends React.Component {
       <div className="container">
       <div className="row">
       
-        <div className="col-2" />
-
-        <div className="col-8">
-          <PostList 
-            posts={filteredPosts.length !== 0 ? filteredPosts : posts[pageNum]} 
-            handleDelete={this.removePost} 
-            fetchPosts={this.fetchPosts} />
-          <Pagination 
-          pages={posts.length}
-          currPage={pageNum}
-          handlePage={this.setPageNum}
-          next={this.nextPage}
-          prev={this.prevPage} />
-          <MainButton afterCreation={this.fetchPosts} />
-        </div>
-
         <div className="col-2">
-          <div className="dropdown mt-4 sticky-top">
+        <div className="dropdown mt-4 sticky-top float-right">
             <button
               className="btn btn-secondary dropdown-toggle"
               type="button"
@@ -86,7 +70,7 @@ class Feed extends React.Component {
             >
               Filter Posts
             </button>
-            <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <div className="dropdown-menu" id="filterDropdown" aria-labelledby="dropdownMenuButton">
               <span
                 className="dropdown-item"
                 onClick={() => this.setFilter("text")}
@@ -115,6 +99,24 @@ class Feed extends React.Component {
               </span>
             </div>
           </div>
+        </div>
+
+        <div className="col-8">
+          <PostList 
+            posts={filteredPosts.length !== 0 ? filteredPosts : posts[pageNum]} 
+            handleDelete={this.removePost} 
+            fetchPosts={this.fetchPosts} />
+          <Pagination 
+          pages={posts.length}
+          currPage={pageNum}
+          handlePage={this.setPageNum}
+          next={this.nextPage}
+          prev={this.prevPage} />
+          <MainButton afterCreation={this.fetchPosts} />
+        </div>
+
+        <div className="col-2">
+          
         </div>
       </div>
 

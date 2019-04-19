@@ -26,7 +26,7 @@ class MainButton extends React.Component {
           >
             <img alt="" className="reminder" />
             <p className="letter">
-              <i className="fas fa-camera-retro" />
+              <i className="fas fa-camera-retro text-dark" />
             </p>
           </div>
 
@@ -39,11 +39,10 @@ class MainButton extends React.Component {
           </div>
 
           <div
-            className="nd1 nds bg-primary zoom"
+            className="nd1 nds bg-primary zoom text-center"
             data-placement="left"
             data-toggle="modal" data-target="#textModal">
-            <img alt="" className="reminder bg-primary" />
-            <p className="letter">T</p>
+            <i className="fas fa-font reminder text-white"></i>
           </div>
 
           <div
